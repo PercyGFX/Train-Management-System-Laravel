@@ -25,6 +25,10 @@ Route::get('/loyalty', function () {
     return view('user.loyalty');
 })->name('loyalty');
 
+Route::get('/contact', function () {
+    return view('user.contact');
+})->name('contact');
+
 
 Auth::routes();
 

@@ -3,23 +3,6 @@
 @section('style')
     <style>
 
-.maincontent {
-  margin-top: 200px;
-}
-
-
-@media (min-width: 768px) {
-  .maincontent {
-    margin-top: 100px;
-  }
-}
-
-
-@media (min-width: 1200px) {
-  .maincontent {
-    margin-top: 500px;
-  }
-}
 
 
     </style>
@@ -91,8 +74,32 @@
     <div class="container">
 
         <div class="row about_row">
-            <div class="col-lg-6 about_col order-lg-1 order-2">
-                Code here ghhghgf
+            <div class="">
+
+                <!-- search items -->
+                <div class="item clearfix rating_5">
+                    <div class="item_image"><img src="frontend/images/top_1.jpg" alt=""></div>
+                    <div class="item_content">
+                        <div class="item_price">From $890</div>
+                        <div class="item_title">Paris, France</div>
+                        <ul>
+                            <li>1 person</li>
+                            <li>4 nights</li>
+                            <li>3 star hotel</li>
+                        </ul>
+                        <div class="rating rating_5" data-rating="5">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                        </div>
+                        <div class="item_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce fringilla lectus nec diam auctor, ut fringilla diam sagittis. Quisque vel est id justo faucibus dapibus id a nibh. Aenean suscipit consequat lacus, sit amet mollis nulla. Morbi sagittis orci id lacus convallis tempus eget sit amet metus.</div>
+                        <div class="item_more_link"><a href="#">Read More</a></div>
+                    </div>
+                </div>
+
+                <!-- end search items -->
             </div>
 
         </div>
