@@ -3,6 +3,10 @@
 @section('style')
     <style>
 
+        .poppins {
+            font-family: 'Poppins', sans-serif;
+        }
+
 
 
     </style>
@@ -87,15 +91,69 @@
                         </div>
                         <div class="col-sm-7">
                             <div class="card-body">
-                                <h3 class="card-title">Ruhunu Kumari</h3>
-                                <p class="card-text">Alice is a freelance web designer and developer based in London. She is specialized in HTML5, CSS3, JavaScript, Bootstrap, etc.</p>
+                                <h3  class="card-title poppins text-danger">Ruhunu Kumari</h3>
+                                <h4 class="poppins"><span class="font-weight-bold">From: </span> Colombo</h4>
+                                <h4 class="poppins"><span class="font-weight-bold">To:</span> Galle</h4>
+                                <h4 class="poppins"><span class="font-weight-bold">Date:</span> 2023/07/30</h4>
+                                <h4 class="poppins"><span class="font-weight-bold">Departure Time:</span> 7.30 AM</h4>
+                                <h4 class="poppins"><span class="font-weight-bold">Arrival Time:</span> 11.00 AM</h4>
+                                <h4 class="poppins text-success"><span class="font-weight-bold">Ticket Price:</span> RS 200</h4>
+                                
                                 <a href="#" class="btn btn-primary stretched-link">Book Seats</a>
                             </div>
                         </div>
                     </div>
                 </div>
 
-              
+              <!-- Item -->
+
+                <!-- Item -->
+                <div class="m-3 card flex fexl-grow-1" style="max-width: 500px;">
+                    <div class="row g-0">
+                        <div class="col-sm-5">
+                            <img src="frontend/images/popular_2.jpg"  class="card-img-top h-100" alt="...">
+                        </div>
+                        <div class="col-sm-7">
+                            <div class="card-body">
+                                <h3  class="card-title poppins text-danger">Ruhunu Kumari</h3>
+                                <h4 class="poppins"><span class="font-weight-bold">From: </span> Colombo</h4>
+                                <h4 class="poppins"><span class="font-weight-bold">To:</span> Galle</h4>
+                                <h4 class="poppins"><span class="font-weight-bold">Date:</span> 2023/07/30</h4>
+                                <h4 class="poppins"><span class="font-weight-bold">Departure Time:</span> 7.30 AM</h4>
+                                <h4 class="poppins"><span class="font-weight-bold">Arrival Time:</span> 11.00 AM</h4>
+                                <h4 class="poppins text-success"><span class="font-weight-bold">Ticket Price:</span> RS 200</h4>
+                                
+                                <a href="#" class="btn btn-primary stretched-link">Book Seats</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+              <!-- Item -->
+
+                <!-- Item -->
+                <div class="m-3 card flex fexl-grow-1" style="max-width: 500px;">
+                    <div class="row g-0">
+                        <div class="col-sm-5">
+                            <img src="frontend/images/popular_2.jpg"  class="card-img-top h-100" alt="...">
+                        </div>
+                        <div class="col-sm-7">
+                            <div class="card-body">
+                                <h3  class="card-title poppins text-danger">Ruhunu Kumari</h3>
+                                <h4 class="poppins"><span class="font-weight-bold">From: </span> Colombo</h4>
+                                <h4 class="poppins"><span class="font-weight-bold">To:</span> Galle</h4>
+                                <h4 class="poppins"><span class="font-weight-bold">Date:</span> 2023/07/30</h4>
+                                <h4 class="poppins"><span class="font-weight-bold">Departure Time:</span> 7.30 AM</h4>
+                                <h4 class="poppins"><span class="font-weight-bold">Arrival Time:</span> 11.00 AM</h4>
+                                <h4 class="poppins text-success"><span class="font-weight-bold">Ticket Price:</span> RS 200</h4>
+                                
+                                <a href="#" class="btn btn-primary stretched-link">Book Seats</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+              <!-- Item -->
                 
                 
                 
