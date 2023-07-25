@@ -1,4 +1,10 @@
 @extends('user.layout')
+@section('title', 'Trains')
+@section('style')
+    <style>
+
+    </style>
+@endsection
 @section('content')
 <!-- Home -->
 
@@ -9,11 +15,11 @@
         <div class="row">
             <div class="col">
                 <div class="home_content">
-                    
+
                 </div>
             </div>
         </div>
-    </div>		
+    </div>
 </div>
 
 <!-- Find Form -->
@@ -48,10 +54,10 @@
                         <div class="find_item">
                             <div>Date:</div>
                             <input type="date" name="adventure" id="adventure" class="dropdown_item_select find_input" />
-                                
+
                         </div>
-                    
-                        
+
+
                         <button class="button find_button">Find</button>
                     </form>
                 </div>
@@ -64,16 +70,22 @@
 
 <div class="about">
     <div class="container">
-        
+
         <div class="row about_row">
             <div class="col-lg-6 about_col order-lg-1 order-2">
                 Code here ghhghgf
             </div>
-            
+
         </div>
     </div>
 </div>
 
 <!-- Milestones -->
 
+@endsection
+
+@section('script')
+    <script>
+
+    </script>
 @endsection
