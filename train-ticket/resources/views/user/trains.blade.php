@@ -3,6 +3,25 @@
 @section('style')
     <style>
 
+.maincontent {
+  margin-top: 100px;
+}
+
+
+@media (min-width: 768px) {
+  .maincontent {
+    margin-top: 200px;
+  }
+}
+
+
+@media (min-width: 1200px) {
+  .maincontent {
+    margin-top: 200px;
+  }
+}
+
+
     </style>
 @endsection
 @section('content')
