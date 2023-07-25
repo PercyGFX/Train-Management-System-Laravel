@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>About us</title>
+<title>@yield('title')</title>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="description" content="Destino project">
@@ -10,6 +10,7 @@
 <link href="{{ asset('frontend/plugins/font-awesome-4.7.0/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
 <link rel="stylesheet" type="text/css" href="{{ asset('frontend/styles/about_styles.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ asset('frontend/styles/about_responsive.css') }}">
+    @yield('style')
 </head>
 <body>
 
@@ -35,11 +36,11 @@
 						<!-- Main Navigation -->
 						<nav class="main_nav ml-auto">
 							<ul class="main_nav_list">
-								<li class="main_nav_item active"><a href="index.html">Home</a></li>
-								<li class="main_nav_item "><a href="#">Trains</a></li>
-								<li class="main_nav_item"><a href="offers.html">Loyality</a></li>
-								<li class="main_nav_item"><a href="news.html">Login</a></li>
-								<li class="main_nav_item"><a href="contact.html">Register</a></li>
+								<li class="main_nav_item active"><a href="{{ route('home') }}">Home</a></li>
+								<li class="main_nav_item "><a href="{{ route('trains') }}">Trains</a></li>
+								<li class="main_nav_item"><a href="{{ route('loyalty') }}">Loyality</a></li>
+								<li class="main_nav_item"><a href="{{ route('login') }}">Login</a></li>
+								<li class="main_nav_item"><a href="{{ route('register') }}">Register</a></li>
 							</ul>
 						</nav>
 
@@ -69,11 +70,11 @@
 			<div class="menu menu_mm">
 
 				<ul class="menu_list menu_mm">
-					<li class="menu_item menu_mm"><a href="index.html">Home</a></li>
-					<li class="menu_item menu_mm"><a href="#">Trains</a></li>
-					<li class="menu_item menu_mm"><a href="offers.html">Loyality</a></li>
-					<li class="menu_item menu_mm"><a href="news.html">Login</a></li>
-					<li class="menu_item menu_mm"><a href="contact.html">Register</a></li>
+					<li class="menu_item menu_mm"><a href="{{ route('home') }}">Home</a></li>
+					<li class="menu_item menu_mm"><a href="{{ route('trains') }}">Trains</a></li>
+					<li class="menu_item menu_mm"><a href="{{ route('loyalty') }}">Loyality</a></li>
+					<li class="menu_item menu_mm"><a href="{{ route('login') }}">Login</a></li>
+					<li class="menu_item menu_mm"><a href="{{ route('register') }}">Register</a></li>
 				</ul>
 
 				<!-- Menu Social -->
@@ -151,5 +152,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> <i cl
 <script src="{{ asset('frontend/plugins/easing/easing.js') }}"></script>
 <script src="{{ asset('frontend/plugins/parallax-js-master/parallax.min.js') }}"></script>
 <script src="{{ asset('frontend/js/about_custom.js') }}"></script>
+
+@yield('script')
 </body>
 </html>

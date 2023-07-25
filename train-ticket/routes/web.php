@@ -15,8 +15,17 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('user.home');
-});
+})->name('home');
+
+Route::get('/trains', function () {
+    return view('user.trains');
+})->name('trains');
+
+Route::get('/loyalty', function () {
+    return view('user.loyalty');
+})->name('loyalty');
+
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('home1');
