@@ -74,33 +74,43 @@
     <div class="container">
 
         <div class="row about_row">
-            <div class="">
+           
 
                 <!-- search items -->
-                <div class="item clearfix rating_5">
-                    <div class="item_image"><img src="frontend/images/top_1.jpg" alt=""></div>
-                    <div class="item_content">
-                        <div class="item_price">From $890</div>
-                        <div class="item_title">Paris, France</div>
-                        <ul>
-                            <li>1 person</li>
-                            <li>4 nights</li>
-                            <li>3 star hotel</li>
-                        </ul>
-                        <div class="rating rating_5" data-rating="5">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
+                    
+
+                <!-- Item -->
+                <div class="card mb-3" style="max-width: 1000px;">
+                    <div class="row g-0">
+                      <div class="col-md-4">
+                        <img
+                          src="https://mdbcdn.b-cdn.net/wp-content/uploads/2020/06/vertical.webp"
+                          alt="Trendy Pants and Shoes"
+                          class="img-fluid rounded-start"
+                          style="max-height: 300px; object-fit: cover;"
+                        />
+                      </div>
+                      <div class="col-md-8">
+                        <div class="card-body">
+                          <h5 class="card-title">Train Name</h5>
+                          <p class="card-text">
+                            This is a wider card with supporting text below as a natural lead-in to
+                            additional content. This content is a little bit longer.
+                          </p>
+                          <p class="card-text">
+                            <small class="text-muted">Last updated 3 mins ago</small>
+                          </p>
                         </div>
-                        <div class="item_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce fringilla lectus nec diam auctor, ut fringilla diam sagittis. Quisque vel est id justo faucibus dapibus id a nibh. Aenean suscipit consequat lacus, sit amet mollis nulla. Morbi sagittis orci id lacus convallis tempus eget sit amet metus.</div>
-                        <div class="item_more_link"><a href="#">Read More</a></div>
+                      </div>
                     </div>
-                </div>
+                  </div>
+                  
+                  
+                  
+                    
 
                 <!-- end search items -->
-            </div>
+          
 
         </div>
     </div>
