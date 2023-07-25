@@ -80,31 +80,26 @@
                     
 
                 <!-- Item -->
-                <div class="card mb-3" style="max-width: 1000px;">
+                <div class="m-3 card flex fexl-grow-1" style="max-width: 500px;">
                     <div class="row g-0">
-                      <div class="col-md-4">
-                        <img
-                          src="https://mdbcdn.b-cdn.net/wp-content/uploads/2020/06/vertical.webp"
-                          alt="Trendy Pants and Shoes"
-                          class="img-fluid rounded-start"
-                          style="max-height: 300px; object-fit: cover;"
-                        />
-                      </div>
-                      <div class="col-md-8">
-                        <div class="card-body">
-                          <h5 class="card-title">Train Name</h5>
-                          <p class="card-text">
-                            This is a wider card with supporting text below as a natural lead-in to
-                            additional content. This content is a little bit longer.
-                          </p>
-                          <p class="card-text">
-                            <small class="text-muted">Last updated 3 mins ago</small>
-                          </p>
+                        <div class="col-sm-5">
+                            <img src="frontend/images/popular_2.jpg"  class="card-img-top h-100" alt="...">
                         </div>
-                      </div>
+                        <div class="col-sm-7">
+                            <div class="card-body">
+                                <h3 class="card-title">Ruhunu Kumari</h3>
+                                <p class="card-text">Alice is a freelance web designer and developer based in London. She is specialized in HTML5, CSS3, JavaScript, Bootstrap, etc.</p>
+                                <a href="#" class="btn btn-primary stretched-link">Book Seats</a>
+                            </div>
+                        </div>
                     </div>
-                  </div>
-                  
+                </div>
+
+              
+                
+                
+                
+                
                   
                   
                     
