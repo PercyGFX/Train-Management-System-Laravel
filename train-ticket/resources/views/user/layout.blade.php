@@ -6,15 +6,15 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="description" content="Destino project">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" type="text/css" href="frontend/styles/bootstrap4/bootstrap.min.css">
-<link href="frontend/plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-<link rel="stylesheet" type="text/css" href="frontend/styles/about_styles.css">
-<link rel="stylesheet" type="text/css" href="frontend/styles/about_responsive.css">
+<link rel="stylesheet" type="text/css" href="{{ asset('frontend/styles/bootstrap4/bootstrap.min.css') }}">
+<link href="{{ asset('frontend/plugins/font-awesome-4.7.0/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="{{ asset('frontend/styles/about_styles.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('frontend/styles/about_responsive.css') }}">
 </head>
 <body>
 
 <div class="super_container">
-	
+
 	<!-- Header -->
 
 	<header class="header">
@@ -28,7 +28,7 @@
 							<div class="logo">
 								<div>ETrain</div>
 								<div>Train Agency</div>
-								<div class="logo_image"><img src="frontend/images/logo.png" alt=""></div>
+								<div class="logo_image"><img src="{{ asset('frontend/images/logo.png') }}" alt=""></div>
 							</div>
 						</div>
 
@@ -44,7 +44,7 @@
 						</nav>
 
 						<!-- Search -->
-						
+
 
 						<!-- Hamburger -->
 						<div class="hamburger ml-auto"><i class="fa fa-bars" aria-hidden="true"></i></div>
@@ -67,7 +67,7 @@
 		<!-- Menu Items -->
 		<div class="menu_inner menu_mm">
 			<div class="menu menu_mm">
-				
+
 				<ul class="menu_list menu_mm">
 					<li class="menu_item menu_mm"><a href="index.html">Home</a></li>
 					<li class="menu_item menu_mm"><a href="#">Trains</a></li>
@@ -77,17 +77,17 @@
 				</ul>
 
 				<!-- Menu Social -->
-				
-			
 
-				
+
+
+
 			</div>
 
 		</div>
 
 	</div>
-	
-	
+
+
 	@yield('content')
 
 
@@ -110,7 +110,7 @@
 						</div>
 						<div class="footer_about_text">About this cpmpany</div>
 						<div class="copyright">
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> <i class="fa fa-heart-o" aria-hidden="true"></i> 
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> <i class="fa fa-heart-o" aria-hidden="true"></i>
 </div>
 					</div>
 				</div>
@@ -121,7 +121,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> <i cl
 						<div class="footer_title">second tab</div>
 						<div class="footer_latest_content">
 
-							
+
 
 						</div>
 					</div>
@@ -131,7 +131,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> <i cl
 				<div class="col-lg-4 footer_col">
 					<div class="tags footer_tags">
 						<div class="footer_title">Third tab</div>
-						
+
 					</div>
 				</div>
 
@@ -140,16 +140,16 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> <i cl
 	</footer>
 </div>
 
-<script src="frontend/js/jquery-3.2.1.min.js"></script>
-<script src="frontend/styles/bootstrap4/popper.js"></script>
-<script src="frontend/styles/bootstrap4/bootstrap.min.js"></script>
-<script src="frontend/plugins/greensock/TweenMax.min.js"></script>
-<script src="frontend/plugins/greensock/TimelineMax.min.js"></script>
-<script src="frontend/plugins/scrollmagic/ScrollMagic.min.js"></script>
-<script src="frontend/plugins/greensock/animation.gsap.min.js"></script>
-<script src="frontend/plugins/greensock/ScrollToPlugin.min.js"></script>
-<script src="frontend/plugins/easing/easing.js"></script>
-<script src="frontend/plugins/parallax-js-master/parallax.min.js"></script>
-<script src="frontend/js/about_custom.js"></script>
+<script src="{{ asset('frontend/js/jquery-3.2.1.min.js') }}"></script>
+<script src="{{ asset('frontend/styles/bootstrap4/popper.js') }}"></script>
+<script src="{{ asset('frontend/styles/bootstrap4/bootstrap.min.js') }}"></script>
+<script src="{{ asset('frontend/plugins/greensock/TweenMax.min.js') }}"></script>
+<script src="{{ asset('frontend/plugins/greensock/TimelineMax.min.js') }}"></script>
+<script src="{{ asset('frontend/plugins/scrollmagic/ScrollMagic.min.js') }}"></script>
+<script src="{{ asset('frontend/plugins/greensock/animation.gsap.min.js') }}"></script>
+<script src="{{ asset('frontend/plugins/greensock/ScrollToPlugin.min.js') }}"></script>
+<script src="{{ asset('frontend/plugins/easing/easing.js') }}"></script>
+<script src="{{ asset('frontend/plugins/parallax-js-master/parallax.min.js') }}"></script>
+<script src="{{ asset('frontend/js/about_custom.js') }}"></script>
 </body>
 </html>
