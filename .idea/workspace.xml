@@ -6,10 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="7a537d99-d88c-47b4-9903-d1cfd7d8b3c1" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/train-ticket/public/frontend/images/about_background.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/train-ticket/public/frontend/images/about_background.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/train-ticket/resources/views/admin/layout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/train-ticket/resources/views/admin/layout.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/train-ticket/resources/views/user/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/train-ticket/resources/views/user/home.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/train-ticket/resources/views/user/layout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/train-ticket/resources/views/user/layout.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,7 +43,7 @@
       <option name="presentableId" value="Default" />
       <updated>1690288140464</updated>
       <workItem from="1690288141631" duration="1346000" />
-      <workItem from="1690355086564" duration="3067000" />
+      <workItem from="1690355086564" duration="3961000" />
     </task>
     <servers />
   </component>

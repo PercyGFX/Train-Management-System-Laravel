@@ -32,8 +32,20 @@ Route::get('/contact', function () {
 
 // admin panel routes
 Route::get('/admin', function () {
-    return view('admin.layout');
-})->name('admin');
+    return view('admin.dashboard');
+})->name('admin dashboard');
+
+Route::get('/admin/trains', function () {
+    return view('admin.trains');
+})->name('admin trains');
+
+Route::get('/admin/addtrain', function () {
+    return view('admin.addtrain');
+})->name('admin add trains');
+
+Route::get('/admin/users', function () {
+    return view('admin.users');
+})->name('admin users');
 
 
 Auth::routes();
