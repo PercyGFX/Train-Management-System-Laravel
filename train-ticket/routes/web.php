@@ -33,6 +33,10 @@ Route::get('/userpanel', function () {
     return view('user.userpanel');
 })->name('userpanel');
 
+Route::get('/livelocation', function () {
+    return view('user.livelocation');
+})->name('livelocation');
+
 
 // admin panel routes
 Route::get('/admin', function () {

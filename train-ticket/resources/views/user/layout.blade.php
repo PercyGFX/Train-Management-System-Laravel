@@ -48,6 +48,10 @@
                                     <li class="main_nav_item"><a href="{{ route('login') }}">Login</a></li>
                                     <li class="main_nav_item"><a href="{{ route('register') }}">Register</a></li>
                                     <li class="main_nav_item"><a href="{{ route('userpanel') }}">User Panel</a></li>
+                                    <li class="main_nav_item"><a href="{{ route('livelocation') }}">Live Location</a></li>
+
+
+                                    
                                 </ul>
                             </nav>
 
