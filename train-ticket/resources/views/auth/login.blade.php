@@ -31,6 +31,11 @@
 {{--                                            class="form-control form-control-lg" />--}}
                                         <input type="text" class="form-control form-control-lg @error('email') is-invalid @enderror" value="{{ old('email') }}" name="email" id="email" required autocomplete="email" autofocus>
                                         <label class="form-label" for="email">Email address</label>
+                                        @error('email')
+                                        <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                                        @enderror
                                     </div>
 
                                     <div class="form-outline mb-4">
@@ -38,6 +43,12 @@
 {{--                                            class="form-control form-control-lg" />--}}
                                         <input type="password"  class="form-control form-control-lg @error('password') is-invalid @enderror" id="password" name="password" required autocomplete="current-password">
                                         <label class="form-label" for="password">Password</label>
+
+                                        @error('password')
+                                        <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                                        @enderror
                                     </div>
 
                                     <div class="pt-1 mb-4">

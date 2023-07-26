@@ -42,16 +42,35 @@
                             <!-- Main Navigation -->
                             <nav class="main_nav ml-auto">
                                 <ul class="main_nav_list">
+
+
+{{--                                    <li class="main_nav_item"><a href="{{ route('livelocation') }}">Live Location</a></li>--}}
                                     <li class="main_nav_item"><a href="{{ route('home') }}">Home</a></li>
                                     <li class="main_nav_item "><a href="{{ route('trains') }}">Trains</a></li>
                                     <li class="main_nav_item"><a href="{{ route('loyalty') }}">Loyality</a></li>
-                                    <li class="main_nav_item"><a href="{{ route('login') }}">Login</a></li>
-                                    <li class="main_nav_item"><a href="{{ route('register') }}">Register</a></li>
-                                    <li class="main_nav_item"><a href="{{ route('userpanel') }}">User Panel</a></li>
-                                    <li class="main_nav_item"><a href="{{ route('livelocation') }}">Live Location</a></li>
+                                    @guest
 
+                                        <li class="main_nav_item"><a href="{{ route('login') }}">Login</a></li>
+                                        <li class="main_nav_item"><a href="{{ route('register') }}">Register</a></li>
+{{--                                        @if (Route::has('register'))--}}
+{{--                                            <li class="nav-item">--}}
+{{--                                                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>--}}
+{{--                                            </li>--}}
+{{--                                        @endif--}}
+                                    @else
+                                        <li class="main_nav_item"><a href="{{ route('userpanel') }}">User Panel</a></li>
+                                        <li class="main_nav_item"><a   href="{{ route('logout') }}"
+                                                                     onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                                {{ __('Logout') }}
+                                            </a></li>
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                            @csrf
+                                        </form>
 
-                                    
+                                        <li class="main_nav_item"><a href="{{ route('userpanel') }}">!Hi {{ auth()->user()->fname }}</a></li>
+
+                                    @endguest
                                 </ul>
                             </nav>
 

@@ -47,17 +47,22 @@
                         <div class="find_item">
                             <div>From Location:</div>
                            <select name="fromlocation" id="adventure" class="dropdown_item_select find_input">
-                                                           <option>Select</option>
-                                                           <option>Categories</option>
-                                                           <option>Categories</option>
+                                                          @php($trainfrom = \App\Train::select('from')->groupBy('from')->get())
+                               @foreach($trainfrom as $tfrom)
+                                   <option>{{ $tfrom->from }}</option>
+
+                               @endforeach
+{{--                                                           <option>Select</option>--}}
+{{--                                                           <option>Categories</option>--}}
                                                        </select>
                         </div>
                         <div class="find_item">
                             <div>To Location:</div>
                             <select name="tolocation" id="adventure" class="dropdown_item_select find_input">
-                                <option>Select</option>
-                                <option>Categories</option>
-                                <option>Categories</option>
+                                @php($trainfrom = \App\Train::select('to')->groupBy('to')->get())
+                                @foreach($trainfrom as $tfrom)
+                                    <option>{{ $tfrom->to }}</option>
+                                @endforeach
                             </select>
                         </div>
 
