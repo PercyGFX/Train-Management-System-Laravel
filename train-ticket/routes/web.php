@@ -43,13 +43,14 @@ Route::get('/admin', function () {
     return view('admin.dashboard');
 })->name('admin dashboard');
 
-Route::get('/admin/trains', function () {
-    return view('admin.trains');
-})->name('admin trains');
+Route::get('/admin/trains', 'AdminController@view_train')->name('admin/trains');
+Route::get('/admin/trains/deactive/{id}', 'AdminController@train_deactive')->name('admin/trains/deactive');
 
 Route::get('/admin/addtrain', function () {
     return view('admin.addtrain');
 })->name('admin add trains');
+
+Route::post('/admin/addtrain/save', 'AdminController@save_train')->name('admin/addtrain/save');
 
 Route::get('/admin/users', function () {
     return view('admin.users');

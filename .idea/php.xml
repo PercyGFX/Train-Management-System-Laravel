@@ -1,32 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="AutoImportSettings">
-    <option name="autoReloadType" value="SELECTIVE" />
+  <component name="MessDetectorOptionsConfiguration">
+    <option name="transferred" value="true" />
   </component>
-  <component name="ChangeListManager">
-    <list default="true" id="7a537d99-d88c-47b4-9903-d1cfd7d8b3c1" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/train-ticket/app/Http/Controllers/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/train-ticket/app/Http/Controllers/AdminController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/train-ticket/config/filesystems.php" beforeDir="false" afterPath="$PROJECT_DIR$/train-ticket/config/filesystems.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/train-ticket/resources/views/admin/addtrain.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/train-ticket/resources/views/admin/addtrain.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/train-ticket/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/train-ticket/resources/views/auth/login.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/train-ticket/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/train-ticket/routes/web.php" afterDir="false" />
-    </list>
-    <option name="SHOW_DIALOG" value="false" />
-    <option name="HIGHLIGHT_CONFLICTS" value="true" />
-    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
-    <option name="LAST_RESOLUTION" value="IGNORE" />
+  <component name="PHPCSFixerOptionsConfiguration">
+    <option name="transferred" value="true" />
   </component>
-  <component name="ComposerSettings">
-    <pharConfigPath>$PROJECT_DIR$/train-ticket/composer.json</pharConfigPath>
-    <execution />
+  <component name="PHPCodeSnifferOptionsConfiguration">
+    <option name="highlightLevel" value="WARNING" />
+    <option name="transferred" value="true" />
   </component>
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="MarkdownSettingsMigration">
-    <option name="stateVersion" value="1" />
-  </component>
-  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="C:\wamp64\bin\php\php7.4.33\php.exe">
+  <component name="PhpIncludePathManager">
     <include_path>
       <path value="$PROJECT_DIR$/train-ticket/vendor/doctrine/lexer" />
       <path value="$PROJECT_DIR$/train-ticket/vendor/laravel/tinker" />
@@ -130,44 +114,18 @@
       <path value="$PROJECT_DIR$/train-ticket/vendor/doctrine/inflector" />
     </include_path>
   </component>
-  <component name="ProjectId" id="2T42fu7CWp2YplXNp8a64siaoi2" />
-  <component name="ProjectViewState">
-    <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showLibraryContents" value="true" />
+  <component name="PhpProjectSharedConfiguration" php_language_level="7.1">
+    <option name="suggestChangeDefaultLanguageLevel" value="false" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
-  }
-}]]></component>
-  <component name="RunManager">
-    <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
-      <TestRunner scope="XML" />
-      <method v="2" />
-    </configuration>
+  <component name="PhpStanOptionsConfiguration">
+    <option name="transferred" value="true" />
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
-  <component name="TaskManager">
-    <task active="true" id="Default" summary="Default task">
-      <changelist id="7a537d99-d88c-47b4-9903-d1cfd7d8b3c1" name="Changes" comment="" />
-      <created>1690288140464</created>
-      <option name="number" value="Default" />
-      <option name="presentableId" value="Default" />
-      <updated>1690288140464</updated>
-      <workItem from="1690288141631" duration="1346000" />
-      <workItem from="1690355086564" duration="3961000" />
-      <workItem from="1690392852754" duration="2759000" />
-    </task>
-    <servers />
+  <component name="PhpUnit">
+    <phpunit_settings>
+      <PhpUnitSettings configuration_file_path="$PROJECT_DIR$/train-ticket/phpunit.xml" custom_loader_path="$PROJECT_DIR$/train-ticket/vendor/autoload.php" use_configuration_file="true" />
+    </phpunit_settings>
   </component>
-  <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
+  <component name="PsalmOptionsConfiguration">
+    <option name="transferred" value="true" />
   </component>
 </project>
