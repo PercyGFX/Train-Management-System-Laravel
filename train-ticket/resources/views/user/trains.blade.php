@@ -54,7 +54,7 @@
                     <h4 class="poppins"><span class="font-weight-bold">Arrival Time:</span> 11.00 AM</h4>
                     <h4 class="poppins text-success"><span class="font-weight-bold">Ticket Price:</span> RS 200</h4>
                     
-                    <a href="#" class="btn btn-primary stretched-link">Book Seats</a>
+                    <a href="#" class="btn btn-primary stretched-link">Book Seats</a>  <a href="#" class="btn btn-success stretched-link">Live Location</a>
                 </div>
             </div>
         </div>
@@ -79,7 +79,7 @@
                 <h4 class="poppins"><span class="font-weight-bold">Arrival Time:</span> 11.00 AM</h4>
                 <h4 class="poppins text-success"><span class="font-weight-bold">Ticket Price:</span> RS 200</h4>
                 
-                <a href="#" class="btn btn-primary stretched-link">Book Seats</a>
+                <a href="#" class="btn btn-primary stretched-link">Book Seats</a>  <a href="#" class="btn btn-success stretched-link">Live Location</a>
             </div>
         </div>
     </div>
