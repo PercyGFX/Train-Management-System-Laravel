@@ -30,6 +30,12 @@ Route::get('/contact', function () {
 })->name('contact');
 
 
+// admin panel routes
+Route::get('/admin', function () {
+    return view('admin.layout');
+})->name('admin');
+
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home1');
