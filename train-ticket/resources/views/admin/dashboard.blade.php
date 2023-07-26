@@ -25,7 +25,7 @@
               <div class="inner">
                 <h3>150</h3>
 
-                <p>New Orders</p>
+                <p>Tickets Today</p>
               </div>
               <div class="icon">
                 <i class="ion ion-bag"></i>
@@ -38,9 +38,9 @@
             <!-- small box -->
             <div class="small-box bg-success">
               <div class="inner">
-                <h3>53<sup style="font-size: 20px">%</sup></h3>
+                <h3>5300 LKR</sup></h3>
 
-                <p>Bounce Rate</p>
+                <p>Revenue Today</p>
               </div>
               <div class="icon">
                 <i class="ion ion-stats-bars"></i>
@@ -53,9 +53,9 @@
             <!-- small box -->
             <div class="small-box bg-warning">
               <div class="inner">
-                <h3>44</h3>
+                <h3>4</h3>
 
-                <p>User Registrations</p>
+                <p>New Users Today</p>
               </div>
               <div class="icon">
                 <i class="ion ion-person-add"></i>
@@ -68,14 +68,14 @@
             <!-- small box -->
             <div class="small-box bg-danger">
               <div class="inner">
-                <h3>65</h3>
+                <h3>6</h3>
 
-                <p>Unique Visitors</p>
+                <p>Trains Today</p>
               </div>
               <div class="icon">
                 <i class="ion ion-pie-graph"></i>
               </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="/admin/trains" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -86,6 +86,8 @@
           <!-- Left col -->
           <section class="col-lg-7 connectedSortable">
             <!-- Custom tabs (Charts with tabs)-->
+
+            <!--
             <div class="card">
               <div class="card-header">
                 <h3 class="card-title">
@@ -102,10 +104,10 @@
                     </li>
                   </ul>
                 </div>
-              </div><!-- /.card-header -->
+              </div>
               <div class="card-body">
                 <div class="tab-content p-0">
-                  <!-- Morris chart - Sales -->
+                 
                   <div class="chart tab-pane active" id="revenue-chart"
                        style="position: relative; height: 300px;">
                       <canvas id="revenue-chart-canvas" height="300" style="height: 300px;"></canvas>
@@ -114,9 +116,10 @@
                     <canvas id="sales-chart-canvas" height="300" style="height: 300px;"></canvas>
                   </div>
                 </div>
-              </div><!-- /.card-body -->
+              </div>
             </div>
-            <!-- /.card -->
+
+            -->
 
             
           

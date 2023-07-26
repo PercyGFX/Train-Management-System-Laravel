@@ -36,22 +36,41 @@
                     <th>Email</th>
                     <th>Phone</th>
                     <th>City</th>
-                    <th>Age</th>   
+                    
                     <th>Tickets Count</th>
-                    <th>Loyality Badge</th>
+                    <th>Status</th>
                   </tr>
                   </thead>
                   <tbody>
-                  <tr>
-                    <td>1</td>
-                    <td>Silva</td>
-                    <td>silva@gmail.com</td>
-                    <td>077400550</td>
-                    <td>Galle</td>
-                    <td>40</td>
-                    <td>13</td>
-                    <td>Bronze</td>
-                  </tr>
+
+                    @if(count($users) > 0)
+        <ul>
+            @foreach ($users as $user)
+               
+
+                <tr>
+                  <td>{{ $user->id }}</td>
+                  <td>{{ $user->fname }} {{ $user->lname }}</td>
+                  <td>{{ $user->email }}</td>
+
+                  @foreach ($user->passengers as $passenger)
+                  <td>{{ $passenger->phone }}</td>
+                  <td>{{ $passenger->city }}</td>
+
+                 
+                  <td> {{ $passenger->tickets_count }}</td>
+                  @endforeach
+                 
+                  <td>{{ $user->status }}</td>
+           
+                  
+                </tr>
+            @endforeach
+        </ul>
+    @else
+        <p>No users found.</p>
+    @endif
+                  
 
                  
          

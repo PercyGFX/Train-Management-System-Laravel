@@ -2,6 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Train;
+use App\User;
+use App\Passenger;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -57,10 +61,18 @@ Route::get('/admin/addtrain', function () {
 
 Route::post('/admin/addtrain/save', 'AdminController@save_train')->name('admin/addtrain/save');
 
+
+// all users table
 Route::get('/admin/users', function () {
-    return view('admin.users');
+    $users = User::with(['passengers' => function ($query) {
+        $query->withCount('tickets');
+    }])->where('type', 'Passenger')->get();
+    
+    return view('admin.users', ['users' => $users]);
 })->name('admin users');
 
+
+//tickets view
 Route::get('/admin/tickets', function () {
     return view('admin.tickets');
 })->name('admin users');
