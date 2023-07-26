@@ -29,6 +29,10 @@ Route::get('/contact', function () {
     return view('user.contact');
 })->name('contact');
 
+Route::get('/userpanel', function () {
+    return view('user.userpanel');
+})->name('userpanel');
+
 
 // admin panel routes
 Route::get('/admin', function () {

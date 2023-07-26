@@ -42,11 +42,12 @@
                             <!-- Main Navigation -->
                             <nav class="main_nav ml-auto">
                                 <ul class="main_nav_list">
-                                    <li class="main_nav_item active"><a href="{{ route('home') }}">Home</a></li>
+                                    <li class="main_nav_item"><a href="{{ route('home') }}">Home</a></li>
                                     <li class="main_nav_item "><a href="{{ route('trains') }}">Trains</a></li>
                                     <li class="main_nav_item"><a href="{{ route('loyalty') }}">Loyality</a></li>
                                     <li class="main_nav_item"><a href="{{ route('login') }}">Login</a></li>
                                     <li class="main_nav_item"><a href="{{ route('register') }}">Register</a></li>
+                                    <li class="main_nav_item"><a href="{{ route('userpanel') }}">User Panel</a></li>
                                 </ul>
                             </nav>
 
