@@ -42,6 +42,6 @@ class AdminController extends Controller
         $train->seats = $request->input('seates');
         $train->save();
 
-        return redirect()->back()->with('success', 'train save successfull');
+        return redirect()->back()->with('success', 'Train Added Successfully');
     }
 }

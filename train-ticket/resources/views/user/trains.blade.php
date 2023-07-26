@@ -39,20 +39,26 @@
 
        <div class="row">
        <!-- Item -->
+       @if(count($trains) > 0)
+
+       @foreach ($trains as $train)
+
+
+
        <div class="m-3 card flex" style="max-width: 500px;">
         <div class="row g-0">
             <div class="col-sm-5">
-                <img src="frontend/images/popular_2.jpg"  class="card-img-top h-100" alt="...">
+                <img src="{{ asset('storage/' . $train->image) }}" class="card-img-top h-100" alt="...">
             </div>
             <div class="col-sm-7">
                 <div class="card-body">
-                    <h3  class="card-title poppins text-danger">Ruhunu Kumari</h3>
-                    <h4 class="poppins"><span class="font-weight-bold">From: </span> Colombo</h4>
-                    <h4 class="poppins"><span class="font-weight-bold">To:</span> Galle</h4>
-                    <h4 class="poppins"><span class="font-weight-bold">Date:</span> 2023/07/30</h4>
-                    <h4 class="poppins"><span class="font-weight-bold">Departure Time:</span> 7.30 AM</h4>
-                    <h4 class="poppins"><span class="font-weight-bold">Arrival Time:</span> 11.00 AM</h4>
-                    <h4 class="poppins text-success"><span class="font-weight-bold">Ticket Price:</span> RS 200</h4>
+                    <h3  class="card-title poppins text-danger">{{ $train->name }}</h3>
+                    <h4 class="poppins"><span class="font-weight-bold">From: </span> {{ $train->from }}</h4>
+                    <h4 class="poppins"><span class="font-weight-bold">To:</span> {{ $train->to }}</h4>
+                    <h4 class="poppins"><span class="font-weight-bold">Date:</span> {{ $train->date }}</h4>
+                    <h4 class="poppins"><span class="font-weight-bold">Departure Time:</span> {{ $train->from_time }}</h4>
+                    <h4 class="poppins"><span class="font-weight-bold">Arrival Time:</span> {{ $train->to_time }}</h4>
+                    <h4 class="poppins text-success"><span class="font-weight-bold">Ticket Price:</span> RS {{ $train->ticket_price }}</h4>
                     
                     <a href="#" class="btn btn-primary stretched-link">Book Seats</a>  <a href="#" class="btn btn-success stretched-link">Live Location</a>
                 </div>
@@ -60,30 +66,20 @@
         </div>
     </div>
 
+
+
+       @endforeach
+
+
+       @else
+       <p>No trains found.</p>
+        @endif
+       
+
   <!-- Item -->
 
 
-  <!-- Item -->
-  <div class="m-3 card flex" style="max-width: 500px;">
-    <div class="row g-0">
-        <div class="col-sm-5">
-            <img src="frontend/images/popular_2.jpg"  class="card-img-top h-100" alt="...">
-        </div>
-        <div class="col-sm-7">
-            <div class="card-body">
-                <h3  class="card-title poppins text-danger">Ruhunu Kumari</h3>
-                <h4 class="poppins"><span class="font-weight-bold">From: </span> Colombo</h4>
-                <h4 class="poppins"><span class="font-weight-bold">To:</span> Galle</h4>
-                <h4 class="poppins"><span class="font-weight-bold">Date:</span> 2023/07/30</h4>
-                <h4 class="poppins"><span class="font-weight-bold">Departure Time:</span> 7.30 AM</h4>
-                <h4 class="poppins"><span class="font-weight-bold">Arrival Time:</span> 11.00 AM</h4>
-                <h4 class="poppins text-success"><span class="font-weight-bold">Ticket Price:</span> RS 200</h4>
-                
-                <a href="#" class="btn btn-primary stretched-link">Book Seats</a>  <a href="#" class="btn btn-success stretched-link">Live Location</a>
-            </div>
-        </div>
-    </div>
-</div>
+
 
 <!-- Item -->
 </div>

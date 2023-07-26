@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Train;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,8 +19,12 @@ Route::get('/', function () {
 })->name('home');
 
 Route::get('/trains', function () {
-    return view('user.trains');
+    // Fetch the train model data where is_active == 1
+    $trains = Train::where('is_active', 1)->get();
+    
+    return view('user.trains', ['trains' => $trains]);
 })->name('trains');
+
 
 Route::get('/loyalty', function () {
     return view('user.loyalty');
