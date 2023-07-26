@@ -47,6 +47,28 @@ Route::get('/admin/users', function () {
     return view('admin.users');
 })->name('admin users');
 
+Route::get('/admin/tickets', function () {
+    return view('admin.tickets');
+})->name('admin users');
+
+
+Route::get('/admin/loyalitydiscount', function () {
+    return view('admin.loyalitydiscount');
+})->name('admin loyalitydiscount');
+
+Route::get('/admin/loyalbadge', function () {
+    return view('admin.loyalbadge');
+})->name('admin loyalbadge');
+
+
+
+
+
+
+
+
+
+
 
 Auth::routes();
 

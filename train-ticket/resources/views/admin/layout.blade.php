@@ -166,7 +166,7 @@
 
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="pages/charts/chartjs.html" class="nav-link">
+                <a href="{{ URL::to('/admin/tickets') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>All Tickets</p>
                 </a>
@@ -177,7 +177,7 @@
           </li>
 
        
-
+          
 
 
 
@@ -192,14 +192,16 @@
 
                       <ul class="nav nav-treeview">
                         <li class="nav-item">
-                          <a href="pages/charts/chartjs.html" class="nav-link">
+                          <a href="{{ URL::to('/admin/loyalitydiscount') }}" class="nav-link">
                             <i class="far fa-circle nav-icon"></i>
                             <p>Discounts</p>
                           </a>
                         </li>
 
+                        
+
                          <li class="nav-item">
-                         <a href="pages/charts/chartjs.html" class="nav-link">
+                         <a href="{{ URL::to('/admin/loyalbadge') }}" class="nav-link">
                               <i class="far fa-circle nav-icon"></i>
                                 <p>Badges</p>
                         </a>
