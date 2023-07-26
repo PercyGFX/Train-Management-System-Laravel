@@ -46,12 +46,16 @@
                     <form action="#" id="find_form" class="find_form d-flex flex-md-row flex-column align-items-md-center align-items-start justify-content-md-between justify-content-start flex-wrap">
                         <div class="find_item">
                             <div>From Location:</div>
-                            <input type="text" class="destination find_input" required="required" placeholder="Keyword here">
+                           <select name="fromlocation" id="adventure" class="dropdown_item_select find_input">
+                                                           <option>Select</option>
+                                                           <option>Categories</option>
+                                                           <option>Categories</option>
+                                                       </select>
                         </div>
                         <div class="find_item">
                             <div>To Location:</div>
-                            <select name="adventure" id="adventure" class="dropdown_item_select find_input">
-                                <option>Categories</option>
+                            <select name="tolocation" id="adventure" class="dropdown_item_select find_input">
+                                <option>Select</option>
                                 <option>Categories</option>
                                 <option>Categories</option>
                             </select>
@@ -59,7 +63,7 @@
 
                         <div class="find_item">
                             <div>Date:</div>
-                            <input type="date" name="adventure" id="adventure" class="dropdown_item_select find_input" />
+                            <input type="date" name="date" id="adventure" class="dropdown_item_select find_input" />
 
                         </div>
 
@@ -78,10 +82,10 @@
     <div class="container">
 
         <div class="row about_row">
-           
+
 
                 <!-- search items -->
-                    
+
 
                 <!-- Item -->
                 <div class="m-3 card flex fexl-grow-1" style="max-width: 500px;">
@@ -98,7 +102,7 @@
                                 <h4 class="poppins"><span class="font-weight-bold">Departure Time:</span> 7.30 AM</h4>
                                 <h4 class="poppins"><span class="font-weight-bold">Arrival Time:</span> 11.00 AM</h4>
                                 <h4 class="poppins text-success"><span class="font-weight-bold">Ticket Price:</span> RS 200</h4>
-                                
+
                                 <a href="#" class="btn btn-primary stretched-link">Book Seats</a>
                             </div>
                         </div>
@@ -122,7 +126,7 @@
                                 <h4 class="poppins"><span class="font-weight-bold">Departure Time:</span> 7.30 AM</h4>
                                 <h4 class="poppins"><span class="font-weight-bold">Arrival Time:</span> 11.00 AM</h4>
                                 <h4 class="poppins text-success"><span class="font-weight-bold">Ticket Price:</span> RS 200</h4>
-                                
+
                                 <a href="#" class="btn btn-primary stretched-link">Book Seats</a>
                             </div>
                         </div>
@@ -146,7 +150,7 @@
                                 <h4 class="poppins"><span class="font-weight-bold">Departure Time:</span> 7.30 AM</h4>
                                 <h4 class="poppins"><span class="font-weight-bold">Arrival Time:</span> 11.00 AM</h4>
                                 <h4 class="poppins text-success"><span class="font-weight-bold">Ticket Price:</span> RS 200</h4>
-                                
+
                                 <a href="#" class="btn btn-primary stretched-link">Book Seats</a>
                             </div>
                         </div>
@@ -154,16 +158,16 @@
                 </div>
 
               <!-- Item -->
-                
-                
-                
-                
-                  
-                  
-                    
+
+
+
+
+
+
+
 
                 <!-- end search items -->
-          
+
 
         </div>
     </div>
