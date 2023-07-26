@@ -31,8 +31,9 @@
                 <table id="example2" class="table table-bordered table-hover">
                   <thead>
                   <tr>
-                    <th>ID</th>
+                    
                     <th>Ticket Count</th>
+                    <th>Badge</th>
                     <th>Discount %</th>
                     <th>Action</th>
                     
@@ -40,22 +41,25 @@
                   </thead>
                   <tbody>
                   <tr>
-                    <td>1</td>
+                   
                     <td>100</td>
+                    <td>Bronze</td>
                     <td>5%</td>      
                     <td><button type="button" class="btn btn-danger">Edit</button></td>
                   </tr>
 
                   <tr>
-                    <td>1</td>
+                   
                     <td>500</td>
+                    <td>Silver</td>
                     <td>15%</td>      
                     <td><button type="button" class="btn btn-danger">Edit</button></td>
                   </tr>
 
                   <tr>
-                    <td>1</td>
+                    
                     <td>100</td>
+                    <td>Gold</td>
                     <td>25%</td>      
                     <td><button type="button" class="btn btn-danger">Edit</button></td>
                   </tr>

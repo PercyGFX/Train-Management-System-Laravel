@@ -37,7 +37,11 @@
     <div class="container bg-light rounded mb-5 p-5">
        <h2 class="poppins">Live Location</h2>
 
-      
+       <div class="container border p-3 my-3">
+
+        Updated Time:
+
+       </div>
 
        <div class="container border p-3">
 
