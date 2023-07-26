@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jul 26, 2023 at 05:17 PM
+-- Generation Time: Jul 26, 2023 at 06:57 PM
 -- Server version: 8.0.31
 -- PHP Version: 7.4.33
 
@@ -199,13 +199,24 @@ CREATE TABLE IF NOT EXISTS `trains` (
   `image` varchar(245) COLLATE utf8mb3_bin DEFAULT NULL,
   `from` varchar(45) COLLATE utf8mb3_bin DEFAULT NULL,
   `to` varchar(45) COLLATE utf8mb3_bin DEFAULT NULL,
-  `from_time` double DEFAULT NULL,
-  `to_time` timestamp NULL DEFAULT NULL,
+  `date` varchar(45) COLLATE utf8mb3_bin DEFAULT NULL,
+  `from_time` time DEFAULT NULL,
+  `to_time` time DEFAULT NULL,
   `ticket_price` double DEFAULT NULL,
   `is_active` varchar(45) COLLATE utf8mb3_bin DEFAULT NULL,
   `seats` int DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_bin;
+
+--
+-- Dumping data for table `trains`
+--
+
+INSERT INTO `trains` (`id`, `created_at`, `updated_at`, `deleted_at`, `name`, `image`, `from`, `to`, `date`, `from_time`, `to_time`, `ticket_price`, `is_active`, `seats`) VALUES
+(1, '2023-07-26 12:55:39', '2023-07-26 12:55:39', NULL, 'ruhunu kumari', NULL, 'Matar', 'galle', NULL, '05:34:00', '08:40:00', 200, '1', NULL),
+(2, '2023-07-26 13:05:18', '2023-07-26 13:24:59', NULL, 'rtytre', NULL, 'ytrey', 'erytreyte', '2023-07-27', '00:08:00', '05:05:00', 5464, '0', 55),
+(3, '2023-07-26 13:10:17', '2023-07-26 13:24:45', NULL, NULL, 'train/ccK0bNf6eqsD3cQSe89BAYmEBzkIoWaBmQxt41KP.png', NULL, NULL, NULL, NULL, NULL, NULL, '0', NULL),
+(4, '2023-07-26 13:11:13', '2023-07-26 13:11:13', NULL, NULL, 'train/2WqCfIK8P2U4oqzjlljxSGdQEXSypSzC2v1U6lfE.png', NULL, NULL, NULL, NULL, NULL, NULL, '1', NULL);
 
 -- --------------------------------------------------------
 
