@@ -47,11 +47,11 @@
 
         <iframe width="100%" height="600" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
         src="https://maps.google.com/maps?q=10.305385,77.923029&hl=es;z=14&amp;output=embed">
-        <iframe src = "">
+{{--        <iframe src = "">--}}
     </iframe>
 
     </div>
- 
+
 
 
 
@@ -60,9 +60,9 @@
     </div>
 
 
-    
 
-    
+
+
 </div>
 
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
