@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 27, 2023 at 01:18 PM
+-- Generation Time: Jul 27, 2023 at 05:27 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.0.25
 
@@ -60,7 +60,7 @@ CREATE TABLE `live_locations` (
 --
 
 INSERT INTO `live_locations` (`id`, `created_at`, `updated_at`, `deleted_at`, `train_id`, `lat`, `lng`, `status`, `delay_time`, `delay_status`) VALUES
-(1, NULL, '2023-07-27 05:29:32', NULL, 5, 37.7749, -122.4194, 1, '02:30:00', 1);
+(1, NULL, '2023-07-27 08:05:48', NULL, 5, 37.7749, -122.4194, 1, '02:30:00', 1);
 
 -- --------------------------------------------------------
 
@@ -77,6 +77,15 @@ CREATE TABLE `loyalty_discounts` (
   `ticket_count` int(11) DEFAULT NULL,
   `dicount_precentage` double DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `loyalty_discounts`
+--
+
+INSERT INTO `loyalty_discounts` (`id`, `created_at`, `updated_at`, `deleted_at`, `badge`, `ticket_count`, `dicount_precentage`) VALUES
+(1, NULL, NULL, NULL, 'Bronze', 100, 1),
+(2, NULL, NULL, NULL, 'Gold', 200, 5),
+(3, NULL, NULL, NULL, 'Platinum', 500, 7);
 
 -- --------------------------------------------------------
 
@@ -122,7 +131,8 @@ CREATE TABLE `passengers` (
 
 INSERT INTO `passengers` (`id`, `created_at`, `updated_at`, `deleted_at`, `user_id`, `nic`, `phone`, `city`) VALUES
 (1, NULL, NULL, NULL, 1, '6565464', '65464654', 'matara'),
-(2, NULL, NULL, NULL, 2, '6564', '76575', 'Mtara');
+(2, NULL, NULL, NULL, 2, '6564', '76575', 'Mtara'),
+(3, NULL, NULL, NULL, 3, 'hgfhg', '786786', '87686');
 
 -- --------------------------------------------------------
 
@@ -184,7 +194,8 @@ CREATE TABLE `tickets` (
 --
 
 INSERT INTO `tickets` (`id`, `created_at`, `updated_at`, `deleted_at`, `passenger_id`, `train_id`, `qty`, `discount`, `ticket_price`, `totle_price`, `status`) VALUES
-(1, NULL, NULL, NULL, 2, 1, NULL, NULL, NULL, NULL, NULL);
+(1, NULL, NULL, NULL, 2, 5, 2, NULL, '299', '600', NULL),
+(2, NULL, NULL, NULL, 3, 5, 1, NULL, '65', '65', 'Unpaid');
 
 -- --------------------------------------------------------
 
@@ -244,7 +255,8 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `fname`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`, `lname`, `type`, `status`) VALUES
 (1, 'Keshan', 'keshanribelz@gmail.com', NULL, '$2a$12$aDcYoz80jcM9eaYhx8Vn3OxA4F6Lh5uQyMsd.H0QajHSwdMtQYjCG', NULL, NULL, NULL, 'Chathuranga', 'Admin', 'Active'),
-(2, 'Namal', 'isurangabtk@gmail.com', NULL, '123', NULL, NULL, NULL, 'Isuranga', 'Passenger', 'Active');
+(2, 'Namal', 'isurangabtk@gmail.com', NULL, '123', NULL, NULL, NULL, 'Isuranga', 'Passenger', 'Active'),
+(3, 'Nimal', 'cybermax098@gmail.com', NULL, 'hhgf', NULL, NULL, NULL, 'Kamal', 'Passenger', 'Active');
 
 --
 -- Indexes for dumped tables
@@ -336,7 +348,7 @@ ALTER TABLE `live_locations`
 -- AUTO_INCREMENT for table `loyalty_discounts`
 --
 ALTER TABLE `loyalty_discounts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -348,7 +360,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `passengers`
 --
 ALTER TABLE `passengers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `payments`
@@ -360,7 +372,7 @@ ALTER TABLE `payments`
 -- AUTO_INCREMENT for table `tickets`
 --
 ALTER TABLE `tickets`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `trains`
@@ -372,7 +384,7 @@ ALTER TABLE `trains`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Constraints for dumped tables
