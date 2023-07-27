@@ -45,9 +45,9 @@
 
 
 {{--                                    <li class="main_nav_item"><a href="{{ route('livelocation') }}">Live Location</a></li>--}}
-                                    <li class="main_nav_item"><a href="{{ route('home') }}">Home</a></li>
-                                    <li class="main_nav_item "><a href="{{ route('trains') }}">Trains</a></li>
-                                    <li class="main_nav_item"><a href="{{ route('loyalty') }}">Loyality</a></li>
+                                    <li class="main_nav_item {{request()->routeIs('home') ? 'active' : ''}}"><a href="{{ route('home') }}">Home</a></li>
+                                    <li class="main_nav_item {{request()->routeIs('trains') ? 'active' : ''}}"><a href="{{ route('trains') }}">Trains</a></li>
+                                    <li class="main_nav_item {{request()->routeIs('loyalty') ? 'active' : ''}}"><a href="{{ route('loyalty') }}">Loyality</a></li>
                                     @guest
 
                                         <li class="main_nav_item"><a href="{{ route('login') }}">Login</a></li>
@@ -58,7 +58,7 @@
 {{--                                            </li>--}}
 {{--                                        @endif--}}
                                     @else
-                                        <li class="main_nav_item"><a href="{{ route('userpanel') }}">User Panel</a></li>
+                                        <li class="main_nav_item" {{request()->routeIs('userpanel') ? 'active' : ''}}><a href="{{ route('userpanel') }}">User Panel</a></li>
                                         <li class="main_nav_item"><a   href="{{ route('logout') }}"
                                                                      onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

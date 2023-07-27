@@ -49,7 +49,7 @@
       <li class="nav-item">
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
-      
+
     </ul>
 
     <!-- Right navbar links -->
@@ -79,7 +79,7 @@
           <img src="{{ asset('backend/dist/img/user2-160x160.jpg') }}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Admin Username</a>
+          <a href="#" class="d-block">{{ auth()->user()->fname }} {{ auth()->user()->lname }}</a>
         </div>
       </div>
 
@@ -176,8 +176,8 @@
             </ul>
           </li>
 
-       
-          
+
+
 
 
 
@@ -204,27 +204,31 @@
                     </li>
 
 
-        
-         
-         
+
+
+
           <li class="nav-header">____________</li>
-          
+
           <li class="nav-item">
-            <a href="{{ URL::to('/admin/logout') }}" class="nav-link">
-            
+            <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();" class="nav-link">
+
               <p>
               Logout
               </p>
             </a>
+              <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                  @csrf
+              </form>
           </li>
-         
-        
-       
-         
-        
-         
-       
-       
+
+
+
+
+
+
+
+
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
@@ -239,7 +243,7 @@
     <strong>Copyright &copy; 2023 E-Train</strong>
     All rights reserved.
     <div class="float-right d-none d-sm-inline-block">
-  
+
     </div>
   </footer>
 
