@@ -31,7 +31,7 @@ Route::get('/', function () {
 Route::get('/trains', function () {
     // Fetch the train model data where is_active == 1
     $trains = Train::where('is_active', 1)->get();
-    
+
     return view('user.trains', ['trains' => $trains]);
 })->name('trains');
 
@@ -70,7 +70,7 @@ Route::get('/livelocation', function () {
 ///////////////////////////////////////////////////// admin panel routes ////////////////////////////////////////////////////////////////////////
 Route::get('/admin', function () {
     return view('admin.dashboard');
-})->name('admin dashboard');
+})->name('admin');
 
 
 Route::get('/admin/trains', 'AdminController@view_train')->name('admin/trains');
@@ -88,14 +88,14 @@ Route::get('/admin/users', function () {
     $users = User::with(['passengers' => function ($query) {
         $query->withCount('tickets');
     }])->where('type', 'Passenger')->get();
-    
+
     return view('admin.users', ['users' => $users]);
 })->name('admin users');
 
 
 //tickets view
 
-    
+
 
 
 Route::get('/admin/tickets', 'AdminController@showtickets')->name('/admin/tickets');

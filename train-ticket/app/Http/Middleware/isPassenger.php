@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Illuminate\Support\Facades\Auth;
 
 class isPassenger
 {
@@ -15,6 +16,15 @@ class isPassenger
      */
     public function handle($request, Closure $next)
     {
-        return $next($request);
+        if (Auth::check()) {
+            if(Auth::user()->status == 'Active') {
+                if (Auth::user()->type == 'Passenger') {
+                    return $next($request);
+                }
+            }else{
+                return redirect()->intended('/blocked');
+            }
+        }
+        return redirect()->intended('/login');
     }
 }

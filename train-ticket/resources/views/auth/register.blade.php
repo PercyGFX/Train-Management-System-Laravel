@@ -27,49 +27,56 @@
                                     </h5>
 
                                     <div class="form-outline mb-2">
-                                        <input type="text" id="name" name="name"
-                                            class="form-control form-control" placeholder="Name" />
+                                        <input type="text" id="fname" name="fname" class="form-control form-control" placeholder="First Name" value="{{ old('fname') }}" />
                                     </div>
 
                                     <div class="form-outline mb-2">
-                                        <input type="text" id="nic" name="nic"
-                                            class="form-control form-control" placeholder="NIC" />
+                                        <input type="text" id="lname" name="lname" class="form-control form-control" placeholder="Last Name" value="{{ old('lname') }}" />
                                     </div>
 
                                     <div class="form-outline mb-2">
-                                        <input type="number" id="age" name="age"
-                                            class="form-control form-control" placeholder="Age" />
+                                        <input type="text" id="nic" name="nic" class="form-control form-control" placeholder="NIC" value="{{ old('nic') }}" />
+                                    </div>
+
+
+                                    <div class="form-outline mb-2">
+                                        <input type="tel" id="phone" name="phone" class="form-control form-control" placeholder="Phone" value="{{ old('phone') }}" />
                                     </div>
 
                                     <div class="form-outline mb-2">
-                                        <input type="tel" id="phone" name="phone"
-                                            class="form-control form-control" placeholder="Phone" />
+                                        <input type="text" id="city" name="city" class="form-control form-control" placeholder="City" value="{{ old('city') }}" />
                                     </div>
 
                                     <div class="form-outline mb-2">
-                                        <input type="text" id="city" name="city"
-                                            class="form-control form-control" placeholder="City" />
+                                        <input type="email" id="email" name="email" class="form-control form-control" placeholder="Email" value="{{ old('email') }}" />
+                                        @error('email')
+                                        <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                        @enderror
                                     </div>
 
                                     <div class="form-outline mb-2">
-                                        <input type="email" id="email" name="email"
-                                            class="form-control form-control" placeholder="Email" />
+                                        <input type="password" id="password" name="password" class="form-control form-control" placeholder="Password" />
+                                        @error('password')
+                                        <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                        @enderror
                                     </div>
 
                                     <div class="form-outline mb-2">
-                                        <input type="password" id="password" name="password"
-                                            class="form-control form-control" placeholder="Password" />
+                                        <input type="password" id="password_confirmation" name="password_confirmation" class="form-control form-control" placeholder="Confirm Password" />
                                     </div>
-
-                                    <div class="form-outline mb-2">
-                                        <input type="password" id="con_password" name="con_password"
-                                            class="form-control form-control" placeholder="Confirm Password" />
-                                    </div>
-
+                                    @foreach ($errors->all() as $error)
+                                        <div class="text-danger">{{ $error }}</div>
+                                    @endforeach
                                     <div class="pt-1 mb-4">
-                                        <button class="btn btn-dark btn-lg btn-block" type="button">Register</button>
+                                        <button class="btn btn-dark btn-lg btn-block" type="submit">Register</button>
                                     </div>
+{{--                                    @if($errors->has())--}}
 
+{{--                                    @endif--}}
                                     <p class="mb-1 pb-lg-2" style="color: #393f81;">Do have an account? <a
                                             href='{{ route('login') }}' style="color: #393f81;">Login here</a></p>
                                 </form>
