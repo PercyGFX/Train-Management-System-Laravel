@@ -35,12 +35,14 @@
                         <p class="card-text text-center">WhatsApp</p>
                     </div>
                 </div>
+                <a href="/contact/email">
                 <div class="card m-3" style="width: 14rem;">
                     <img src="{{ asset('frontend/images/gmail.png') }}" class="card-img-top" alt="Sunset Over the Sea" />
                     <div class="card-body">
                         <p class="card-text text-center">Email</p>
                     </div>
                 </div>
+            </a>
                 <div class="card m-3" style="width: 14rem;">
                     <img src="{{ asset('frontend/images/phone.jpg') }}" class="card-img-top" alt="Sunset Over the Sea" />
                     <div class="card-body">

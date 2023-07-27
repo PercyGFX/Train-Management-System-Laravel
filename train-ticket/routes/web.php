@@ -44,6 +44,11 @@ Route::post('/search', 'UserController@searchtrain')->name('home/search');
 
 Route::get('/livelocation/{id}', 'UserController@liveLocation')->name('livelocation');
 
+Route::get('/contact/email', 'UserController@contactemail')->name('contactemail');
+Route::post('/contact/email', 'UserController@contactemailsend')->name('contactemailsend');
+
+
+
 
 
 

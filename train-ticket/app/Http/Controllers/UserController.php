@@ -141,4 +141,52 @@ class UserController extends Controller
     }
 
 
+    // email contact
+
+    public function contactemail(){
+
+        return view('user.contactemail');
+    }
+
+    public function contactemailsend(Request $request){
+
+        $rules = [
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|max:255',
+            'subject' => 'required|string|max:255',
+            'message' => 'required|string',
+        ];
+    
+        // Create the validator instance
+        $validator = Validator::make($request->all(), $rules);
+    
+        // Check if the validation fails
+        if ($validator->fails()) {
+            return redirect()
+                ->back()
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+        
+
+        $testMailData = [
+            'title' => 'E-Train Contact Us',
+            'body' => '<p style="font-weight: bold; color: #333;">Name: <span style="color: #ff6600;">' . $request->name . '</span><br>
+                       Email: <span style="color: #ff6600;">' . $request->email . '</span><br>
+                       Subject: <span style="color: #ff6600;">' . $request->subject . '</span><br>
+                       Message: <span style="color: #ff6600;">' . $request->message . '</span></p>',
+        ];
+        
+
+        //send mail to company email
+        Mail::to('isurangabtk@gmail.com')->send(new TestMail($testMailData));
+
+        return view('user.contactemail')->with('message', "Message sent successfully");
+    
+
+
+    }
+
+
 }
