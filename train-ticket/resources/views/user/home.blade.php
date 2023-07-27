@@ -92,7 +92,7 @@
                 <!-- search items -->
 
                 @if(isset($trains) && !$trains->isEmpty())
-        <ul>
+        <ul><h4 class="poppins"> Avilable Trains </h4>
             @foreach($trains as $train)
                
                 <div class="m-3 card flex fexl-grow-1" style="max-width: 500px;">
@@ -122,7 +122,32 @@
         @if(isset($notFoundMessage))
             {!! $notFoundMessage !!}  </h4>
         @else
-            <p>Search for a train from above <p>
+        <div class="about">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="section_title text-center">
+                            <h2>Ride the Rails: Unleash Your Adventure with us!</h2>
+                           
+                        </div>
+                    </div>
+                </div>
+                <div class="row about_row">
+                    <div class="col-lg-6 about_col order-lg-1 order-2">
+                        <div class="about_content">
+                            <p>Embark on a journey of speed, reliability, and innovation with our train website. Get ready to witness the thrill of fast-paced travel without compromising on comfort and dependability. Our trains ensure you reach your destination swiftly, surrounded by modern amenities and attentive service. </p>
+                            <p> Rest easy with our cutting-edge live tracking system, keeping you informed in real-time about your train's location and schedule. Say goodbye to uncertainty and embrace the convenience of knowing when you'll arrive.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 about_col order-lg-2 order-1">
+                        <div class="about_image">
+                            <img src=" {{ asset('frontend/images/about.jpg') }}" alt="">
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         @endif
   
     

@@ -22,7 +22,7 @@ class PassengerController extends Controller
 
         // If no results found, use a default message
         if ($trains->isEmpty()) {
-            $notFoundMessage = "No trains found for the specified criteria.";
+            $notFoundMessage = "No available trains found for the specified criteria.";
             return view('user.home', compact('notFoundMessage'));
         }
 
