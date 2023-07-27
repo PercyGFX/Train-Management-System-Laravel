@@ -89,16 +89,30 @@ class PassengerController extends Controller
 
     if ($jsonData['delay_status'] == 1) {
 
+        //get all passenger emails to train id
         $trainId = $jsonData['train_id'];
         $ticketPassengerIds = Ticket::where('train_id', $trainId)->pluck('passenger_id');
         $passengerEmails = User::whereIn('id', $ticketPassengerIds)->pluck('email')->toArray();
 
+        //get train & ticket data to train ID
+        $trainInfo = Train::where('id', $trainId)->first();
+        $ticketInfo = Ticket::where('train_id', $trainId)->first();
+        
+        // Step 4: Create the email body with the required information
         $testMailData = [
             'title' => 'Train Delay Notification From E-Train',
-            'body' => 'There is a delay in the train schedule. The delay time is: ' . $jsonData['delay_time'],
+            'body' => '<h2>There is a delay in the train schedule. The delay time is: ' . $jsonData['delay_time'] . '</h2>' .
+                      '<table border="1" cellpadding="5">' .
+                      '<tr><th>Train Name</th><th>From</th><th>To</th><th>Date</th><th>From Time</th><th>To Time</th></tr>' .
+                      '<tr><td>' . $trainInfo->name . '</td><td>' . $trainInfo->from . '</td><td>' . $trainInfo->to . '</td><td>' . $trainInfo->date . '</td><td>' . $trainInfo->from_time . '</td><td>' . $trainInfo->to_time . '</td></tr>' .
+                      '</table>' .
+                      '<p>Ticket Price: ' . $ticketInfo->ticket_price . '</p>' .
+                      '<p>Ticket Price: ' . $ticketInfo->qty . '</p>' .
+                      '<p>Total Price: ' . $ticketInfo->totle_price . '</p>',
         ];
-    
-        Mail::to( $passengerEmails)->send(new TestMail($testMailData));
+        
+        // Step 5: Send the email to the passengers
+        Mail::to($passengerEmails)->send(new TestMail($testMailData));
     }
 
     // Extract the train_id from the JSON data
