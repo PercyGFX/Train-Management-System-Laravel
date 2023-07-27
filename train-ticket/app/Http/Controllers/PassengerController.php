@@ -6,6 +6,8 @@ use App\LiveLocation;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\TestMail;
+use App\Ticket;
+use App\User;
 
 use Illuminate\Http\Request;
 
@@ -82,16 +84,21 @@ class PassengerController extends Controller
     // Get the validated JSON data
     $jsonData = $validator->validated();
 
-
+    
     //email send if delayed
 
     if ($jsonData['delay_status'] == 1) {
+
+        $trainId = $jsonData['train_id'];
+        $ticketPassengerIds = Ticket::where('train_id', $trainId)->pluck('passenger_id');
+        $passengerEmails = User::whereIn('id', $ticketPassengerIds)->pluck('email')->toArray();
+
         $testMailData = [
             'title' => 'Train Delay Notification From E-Train',
             'body' => 'There is a delay in the train schedule. The delay time is: ' . $jsonData['delay_time'],
         ];
     
-        Mail::to('isurangabtk@gmail.com')->send(new TestMail($testMailData));
+        Mail::to( $passengerEmails)->send(new TestMail($testMailData));
     }
 
     // Extract the train_id from the JSON data
