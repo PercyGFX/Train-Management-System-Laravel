@@ -145,22 +145,14 @@ class PassengerController extends Controller
 
     public function userpanel(){
 
+        $id = auth()->id();
+
+
+
         return view('user.userpanel');
     }
 
 
-    // send mail
-
-    public function sendmail(){
-        $testMailData = [
-            'title' => 'Test Email From AllPHPTricks.com',
-            'body' => 'This is the body of test email.'
-        ];
-
-        Mail::to('isurangabtk@gmail.com')->send(new TestMail($testMailData));
-    
-
-    }
 
 
 

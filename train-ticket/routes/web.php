@@ -43,10 +43,6 @@ Route::post('/', 'PassengerController@searchtrain')->name('search');
 
 Route::get('/livelocation/{id}', 'PassengerController@liveLocation')->name('livelocation');
 
-//send mail
-
-Route::get('/sendmail', 'PassengerController@sendmail')->name('sendmail');
-
 
 
 
