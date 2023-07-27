@@ -43,7 +43,8 @@
             </div>
             <div class="col-12">
                 <div class="find_form_container">
-                    <form action="#" id="find_form" class="find_form d-flex flex-md-row flex-column align-items-md-center align-items-start justify-content-md-between justify-content-start flex-wrap">
+                    <form action="/" method="POST" id="find_form" class="find_form d-flex flex-md-row flex-column align-items-md-center align-items-start justify-content-md-between justify-content-start flex-wrap">
+                        @csrf
                         <div class="find_item">
                             <div>From Location:</div>
                            <select name="fromlocation" id="adventure" class="dropdown_item_select find_input">
@@ -52,8 +53,7 @@
                                    <option>{{ $tfrom->from }}</option>
 
                                @endforeach
-{{--                                                           <option>Select</option>--}}
-{{--                                                           <option>Categories</option>--}}
+
                                                        </select>
                         </div>
                         <div class="find_item">
@@ -91,82 +91,49 @@
 
                 <!-- search items -->
 
-
-                <!-- Item -->
+                @if(isset($trains) && !$trains->isEmpty())
+        <ul>
+            @foreach($trains as $train)
+               
                 <div class="m-3 card flex fexl-grow-1" style="max-width: 500px;">
                     <div class="row g-0">
                         <div class="col-sm-5">
-                            <img src="frontend/images/popular_2.jpg"  class="card-img-top h-100" alt="...">
+                            <img src="{{ asset('storage/' . $train->image) }}"  class="card-img-top h-100" alt="...">
                         </div>
                         <div class="col-sm-7">
                             <div class="card-body">
-                                <h3  class="card-title poppins text-danger">Ruhunu Kumari</h3>
-                                <h4 class="poppins"><span class="font-weight-bold">From: </span> Colombo</h4>
-                                <h4 class="poppins"><span class="font-weight-bold">To:</span> Galle</h4>
-                                <h4 class="poppins"><span class="font-weight-bold">Date:</span> 2023/07/30</h4>
-                                <h4 class="poppins"><span class="font-weight-bold">Departure Time:</span> 7.30 AM</h4>
-                                <h4 class="poppins"><span class="font-weight-bold">Arrival Time:</span> 11.00 AM</h4>
-                                <h4 class="poppins text-success"><span class="font-weight-bold">Ticket Price:</span> RS 200</h4>
+                                <h3  class="card-title poppins text-danger">{{ $train->name }}</h3>
+                                <h4 class="poppins"><span class="font-weight-bold">From: </span> {{ $train->from }}</h4>
+                                <h4 class="poppins"><span class="font-weight-bold">To:</span> {{ $train->to }}</h4>
+                                <h4 class="poppins"><span class="font-weight-bold">Date:</span> {{ $train->date }}</h4>
+                                <h4 class="poppins"><span class="font-weight-bold">Departure Time:</span> {{ $train->from_time }}</h4>
+                                <h4 class="poppins"><span class="font-weight-bold">Arrival Time:</span> {{ $train->to_time }}</h4>
+                                <h4 class="poppins text-success"><span class="font-weight-bold">Ticket Price:</span> RS {{ $train->ticket_price }}</h4>
 
                                 <a href="#" class="btn btn-primary stretched-link">Book Seats</a>  <a href="#" class="btn btn-success stretched-link">Live Location</a>
                             </div>
                         </div>
                     </div>
                 </div>
+            @endforeach
+        </ul>
+    @else
+    <h4>
+        @if(isset($notFoundMessage))
+            {!! $notFoundMessage !!}  </h4>
+        @else
+            <p>Search for a train from above <p>
+        @endif
+  
+    
 
-              <!-- Item -->
+    @endif
+
 
                 <!-- Item -->
-                <div class="m-3 card flex fexl-grow-1" style="max-width: 500px;">
-                    <div class="row g-0">
-                        <div class="col-sm-5">
-                            <img src="frontend/images/popular_2.jpg"  class="card-img-top h-100" alt="...">
-                        </div>
-                        <div class="col-sm-7">
-                            <div class="card-body">
-                                <h3  class="card-title poppins text-danger">Ruhunu Kumari</h3>
-                                <h4 class="poppins"><span class="font-weight-bold">From: </span> Colombo</h4>
-                                <h4 class="poppins"><span class="font-weight-bold">To:</span> Galle</h4>
-                                <h4 class="poppins"><span class="font-weight-bold">Date:</span> 2023/07/30</h4>
-                                <h4 class="poppins"><span class="font-weight-bold">Departure Time:</span> 7.30 AM</h4>
-                                <h4 class="poppins"><span class="font-weight-bold">Arrival Time:</span> 11.00 AM</h4>
-                                <h4 class="poppins text-success"><span class="font-weight-bold">Ticket Price:</span> RS 200</h4>
-
-                                <a href="#" class="btn btn-primary stretched-link">Book Seats</a>  <a href="#" class="btn btn-success stretched-link">Live Location</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+             
 
               <!-- Item -->
-
-                <!-- Item -->
-                <div class="m-3 card flex fexl-grow-1" style="max-width: 500px;">
-                    <div class="row g-0">
-                        <div class="col-sm-5">
-                            <img src="frontend/images/popular_2.jpg"  class="card-img-top h-100" alt="...">
-                        </div>
-                        <div class="col-sm-7">
-                            <div class="card-body">
-                                <h3  class="card-title poppins text-danger">Ruhunu Kumari</h3>
-                                <h4 class="poppins"><span class="font-weight-bold">From: </span> Colombo</h4>
-                                <h4 class="poppins"><span class="font-weight-bold">To:</span> Galle</h4>
-                                <h4 class="poppins"><span class="font-weight-bold">Date:</span> 2023/07/30</h4>
-                                <h4 class="poppins"><span class="font-weight-bold">Departure Time:</span> 7.30 AM</h4>
-                                <h4 class="poppins"><span class="font-weight-bold">Arrival Time:</span> 11.00 AM</h4>
-                                <h4 class="poppins text-success"><span class="font-weight-bold">Ticket Price:</span> RS 200</h4>
-
-                                <a href="#" class="btn btn-primary stretched-link">Book Seats</a>  <a href="#" class="btn btn-success stretched-link">Live Location</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-              <!-- Item -->
-
-
-
-
 
 
 
