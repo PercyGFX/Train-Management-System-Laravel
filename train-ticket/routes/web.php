@@ -58,13 +58,10 @@ Route::get('/contact', function () {
     return view('user.contact');
 })->name('contact');
 
-Route::get('/userpanel', function () {
-    return view('user.userpanel');
-})->name('userpanel');
+//user panel
 
-Route::get('/livelocation', function () {
-    return view('user.livelocation');
-})->name('livelocation');
+Route::get('/userpanel', 'PassengerController@userpanel')->name('userpanel');
+
 
 
 ///////////////////////////////////////////////////// admin panel routes ////////////////////////////////////////////////////////////////////////

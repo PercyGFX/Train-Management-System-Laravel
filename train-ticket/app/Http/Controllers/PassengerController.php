@@ -62,7 +62,7 @@ class PassengerController extends Controller
         }
     }
 
-    //location update
+    //location update API
 
     public function locationupdate(Request $request){
 
@@ -138,28 +138,27 @@ class PassengerController extends Controller
     // Return a success response
     return response()->json(['message' => 'Data inserted/updated successfully']);
 
+    }
 
 
+    // user panel
 
+    public function userpanel(){
+
+        return view('user.userpanel');
     }
 
 
     // send mail
 
     public function sendmail(){
-
-       
-
-
         $testMailData = [
             'title' => 'Test Email From AllPHPTricks.com',
             'body' => 'This is the body of test email.'
         ];
 
         Mail::to('isurangabtk@gmail.com')->send(new TestMail($testMailData));
-
     
-
 
     }
 
