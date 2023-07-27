@@ -6,15 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="7a537d99-d88c-47b4-9903-d1cfd7d8b3c1" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.mwb" beforeDir="false" afterPath="$PROJECT_DIR$/db.mwb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.mwb.bak" beforeDir="false" afterPath="$PROJECT_DIR$/db.mwb.bak" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/train-ticket/app/Http/Controllers/Auth/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/train-ticket/app/Http/Controllers/Auth/RegisterController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/train-ticket/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/train-ticket/app/Http/Controllers/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/train-ticket/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/train-ticket/app/Http/Kernel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/train-ticket/app/Http/Middleware/isAdmin.php" beforeDir="false" afterPath="$PROJECT_DIR$/train-ticket/app/Http/Middleware/isAdmin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/train-ticket/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/train-ticket/app/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/train-ticket/resources/views/auth/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/train-ticket/resources/views/auth/register.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/train-ticket/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/train-ticket/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/train-ticket/app/Http/Controllers/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/train-ticket/app/Http/Controllers/AdminController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/train-ticket/app/Passenger.php" beforeDir="false" afterPath="$PROJECT_DIR$/train-ticket/app/Passenger.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/train-ticket/app/Ticket.php" beforeDir="false" afterPath="$PROJECT_DIR$/train-ticket/app/Ticket.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -171,7 +165,7 @@
       <workItem from="1690392852754" duration="8466000" />
       <workItem from="1690437560365" duration="41000" />
       <workItem from="1690469546937" duration="1031000" />
-      <workItem from="1690470606384" duration="3262000" />
+      <workItem from="1690470606384" duration="3938000" />
     </task>
     <servers />
   </component>

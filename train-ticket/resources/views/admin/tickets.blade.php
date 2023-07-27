@@ -9,7 +9,7 @@
           <div class="col-sm-6">
             <h1 class="m-0">Tickets</h1>
           </div><!-- /.col -->
-          
+
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
     </div>
@@ -18,7 +18,7 @@
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
-       
+
         <!-- content here -->
 
         <div class="col-12">
@@ -36,7 +36,7 @@
                     <th>Train</th>
                     <th>User</th>
                     <th>QTY</th>
-                    <th>Discount</th>   
+                    <th>Discount</th>
                     <th>Amount</th>
                     <th>Payment Status</th>
                   </tr>
@@ -44,14 +44,14 @@
                   <tbody>
 
                     @foreach ($tickets as $ticket)
-                  
+
                     <!-- Display other ticket information here -->
 
                     <tr>
                       <td>{{ $ticket->id }}</td>
                       <td>{{ $ticket->created_at }}</td>
-                      <td>{{ $ticket->train_id }}</td>
-                      <td>{{ $ticket->user_id }}</td>
+                      <td>{{ $ticket->train->name }}</td>
+                      <td>{{ $ticket->passenger->user->fname }} {{ $ticket->passenger->user->lname }}</td>
                       <td>{{ $ticket->qty }}</td>
                       <td>{{ $ticket->discount }}</td>
                       <td>{{ $ticket->ticket_price }}</td>
@@ -60,12 +60,12 @@
 
 
                 @endforeach
-                 
-                 
 
-                 
-                 
-         
+
+
+
+
+
                   </tfoot>
                 </table>
               </div>
@@ -78,16 +78,16 @@
 
 
           <!-- content end -->
-        
-            
-         
-    
-              
+
+
+
+
+
             </div>
             <!-- -->
           </section>
           <!-- /.Left col -->
-         
+
         </div>
         <!-- /.row (main row) -->
       </div><!-- /.container-fluid -->

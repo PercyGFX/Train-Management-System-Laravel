@@ -52,9 +52,9 @@ class AdminController extends Controller
 
     public function showtickets(){
 
-        $tickets = Ticket::with(['user', 'train'])->get();
+         $tickets = Ticket::with('passenger.user', 'train')->get();
         return view('admin.tickets', ['tickets' => $tickets]);
-    
+
 
     }
 }
