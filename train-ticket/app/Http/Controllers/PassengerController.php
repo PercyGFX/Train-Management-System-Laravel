@@ -107,7 +107,7 @@ class PassengerController extends Controller
                       '<tr><td>' . $trainInfo->name . '</td><td>' . $trainInfo->from . '</td><td>' . $trainInfo->to . '</td><td>' . $trainInfo->date . '</td><td>' . $trainInfo->from_time . '</td><td>' . $trainInfo->to_time . '</td></tr>' .
                       '</table>' .
                       '<p>Ticket Price: ' . $ticketInfo->ticket_price . '</p>' .
-                      '<p>Ticket Price: ' . $ticketInfo->qty . '</p>' .
+                      '<p>Ticket QTY: ' . $ticketInfo->qty . '</p>' .
                       '<p>Total Price: ' . $ticketInfo->totle_price . '</p>',
         ];
         
