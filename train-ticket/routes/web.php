@@ -4,6 +4,10 @@ use Illuminate\Support\Facades\Route;
 use App\Train;
 use App\User;
 use App\Passenger;
+use App\LoyaltyDiscount;
+
+
+
 
 
 
@@ -63,10 +67,11 @@ Route::get('/livelocation', function () {
 })->name('livelocation');
 
 
-// admin panel routes
+// admin panel routes ////////////////////////////////////////////////////////////////////////
 Route::get('/admin', function () {
     return view('admin.dashboard');
 })->name('admin dashboard');
+
 
 Route::get('/admin/trains', 'AdminController@view_train')->name('admin/trains');
 Route::get('/admin/trains/deactive/{id}', 'AdminController@train_deactive')->name('admin/trains/deactive');
@@ -94,13 +99,12 @@ Route::get('/admin/tickets', function () {
 })->name('admin users');
 
 
-Route::get('/admin/loyalitydiscount', function () {
-    return view('admin.loyalitydiscount');
-})->name('admin loyalitydiscount');
+// discount
 
-Route::get('/admin/loyalbadge', function () {
-    return view('admin.loyalbadge');
-})->name('admin loyalbadge');
+Route::get('/admin/loyalitydiscount', function () {
+    $loyaltyDiscounts = LoyaltyDiscount::all();
+    return view('admin.loyalitydiscount', ['loyaltyDiscounts' => $loyaltyDiscounts]);
+})->name('admin.loyaltydiscount');
 
 
 

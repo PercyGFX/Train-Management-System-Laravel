@@ -40,30 +40,19 @@
                   </tr>
                   </thead>
                   <tbody>
+
+                    @foreach ($loyaltyDiscounts as $discount)
                   <tr>
                    
-                    <td>100</td>
-                    <td>Bronze</td>
-                    <td>5%</td>      
+                    <td>{{ $discount->ticket_count }}</td>
+                    <td>{{ $discount->badge }}</td>
+                    <td>{{ $discount->dicount_precentage }}%</td>      
                     <td><button type="button" class="btn btn-danger">Edit</button></td>
                   </tr>
 
-                  <tr>
-                   
-                    <td>500</td>
-                    <td>Silver</td>
-                    <td>15%</td>      
-                    <td><button type="button" class="btn btn-danger">Edit</button></td>
-                  </tr>
+                   @endforeach
 
-                  <tr>
-                    
-                    <td>100</td>
-                    <td>Gold</td>
-                    <td>25%</td>      
-                    <td><button type="button" class="btn btn-danger">Edit</button></td>
-                  </tr>
-
+               
                  
                  
          
