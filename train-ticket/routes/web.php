@@ -92,7 +92,9 @@ Route::get('/admin/loyalitydiscount', 'AdminController@loyaltydiscount')->name('
 
 
 //discount edit
-Route::get('/admin/loyalitydiscount/edit', 'AdminController@loyalitydiscountedit')->name('/admin/loyalitydiscount/edit');
+Route::get('/admin/loyalitydiscount/edit/{id}', 'AdminController@loyalitydiscountedit')->name('/admin/loyalitydiscount/edit');
+
+Route::post('/admin/loyalitydiscount/edit/save', 'AdminController@loyalitydiscounteditsave')->name('/admin/loyalitydiscount/edit/save');
 
 
 

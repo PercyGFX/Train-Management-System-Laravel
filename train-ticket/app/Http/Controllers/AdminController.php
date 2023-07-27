@@ -71,14 +71,48 @@ class AdminController extends Controller
     public function addtrain() {
         return view('admin.addtrain');
     }
-    // edit discount
+
     public function dashboard() {
         return view('admin.dashboard');
     }
-    public function loyalitydiscountedit(){
 
-        return view('admin.discountedit');
+        // edit discount
+    public function loyalitydiscountedit($id){
+
+        $loyaltyDiscount = LoyaltyDiscount::find($id);
+   
+        // Pass the row to the view
+        return view('admin.discountedit', compact('loyaltyDiscount'));
     }
+
+    //edit discount save
+
+    public function loyalitydiscounteditsave(Request $request){
+
+
+        $id = $request->input('id');
+        $loyaltyDiscount = LoyaltyDiscount::find($id);
+
+        // Check if the row exists
+        if (!$loyaltyDiscount) {
+            // Handle the case when the row is not found, e.g., redirect or show an error message
+            return redirect()->back()->with('error', 'Loyalty discount not found.');
+        }
+
+        // Update the model with data from $request
+        $loyaltyDiscount->ticket_count = $request->input('ticketcount');
+        $loyaltyDiscount->dicount_precentage = $request->input('discount');
+
+        // Save the changes to the database
+        $loyaltyDiscount->save();
+
+        // Redirect to a success page or any other action as needed
+        return redirect()->route('admin.loyaltydiscount')->with('success', 'Loyalty discount updated successfully.');
+
+
+    }
+
+
     public function loyaltydiscount(){
         $loyaltyDiscounts = LoyaltyDiscount::all();
         return view('admin.loyalitydiscount', ['loyaltyDiscounts' => $loyaltyDiscounts]);
