@@ -45,7 +45,7 @@
 
 
 {{--                                    <li class="main_nav_item"><a href="{{ route('livelocation') }}">Live Location</a></li>--}}
-                                    <li class="main_nav_item {{request()->routeIs('home') or request()->routeIs('home/search') ? 'active' : ''}}"><a href="{{ route('home') }}">Home</a></li>
+                                    <li class="main_nav_item {{request()->routeIs('home') ? 'active' : ''}}{{request()->routeIs('home/search') ? 'active' : ''}}"><a href="{{ route('home') }}">Home</a></li>
                                     <li class="main_nav_item {{request()->routeIs('trains') ? 'active' : ''}}"><a href="{{ route('trains') }}">Trains</a></li>
                                     <li class="main_nav_item {{request()->routeIs('loyalty') ? 'active' : ''}}"><a href="{{ route('loyalty') }}">Loyality</a></li>
                                     @guest

@@ -22,4 +22,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 // location feed ApI
 
-Route::post('/locationupdate', 'PassengerController@locationupdate')->name('locationupdate');
+Route::post('/locationupdate', 'UserController@locationupdate')->name('locationupdate');
