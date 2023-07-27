@@ -61,8 +61,11 @@
                         </div>
                         <div class="row m-1 pb-0">
                             <div class="col p-0">
-                                <p class="text-warning font-weight-bold m-0">Delay Time: {{ $trainData->from_time }}</p>
+                                @if($locationData->delay_status == 1)
+                                <p class="text-warning font-weight-bold m-0">Delay Time: {{ $locationData->delay_time }}</p>
+                                @endif
 
+                                
                             </div>
                         </div>
                 </div>
