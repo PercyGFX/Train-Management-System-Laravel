@@ -109,6 +109,10 @@ Route::get('/admin/loyalitydiscount', function () {
 })->name('admin.loyaltydiscount');
 
 
+//discount edit
+Route::get('/admin/loyalitydiscount/edit', 'AdminController@loyalitydiscountedit')->name('/admin/loyalitydiscount/edit');
+
+
 
 
 

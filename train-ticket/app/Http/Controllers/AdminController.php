@@ -57,4 +57,11 @@ class AdminController extends Controller
 
 
     }
+
+    // edit discount
+
+    public function loyalitydiscountedit(){
+
+        return view('admin.discountedit');
+    }
 }
