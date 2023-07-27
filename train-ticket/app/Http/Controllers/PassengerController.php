@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Train;
 use App\LiveLocation;
+use Illuminate\Support\Facades\Validator;
 
 use Illuminate\Http\Request;
 
@@ -61,8 +62,23 @@ class PassengerController extends Controller
 
     public function locationupdate(Request $request){
 
-      // Get the JSON data from the request
-    $jsonData = $request->input();
+     // Validate the JSON data
+    $validator = Validator::make($request->all(), [
+        'train_id' => 'required|integer',
+        'status' => 'required|integer',
+        'lat' => 'required|numeric',
+        'lng' => 'required|numeric',
+        'delay_time' => 'required|date_format:H:i:s',
+        'delay_status' => 'required|integer',
+    ]);
+
+    if ($validator->fails()) {
+        // If validation fails, return the error response with validation messages
+        return response()->json(['errors' => $validator->errors()], 422);
+    }
+
+    // Get the validated JSON data
+    $jsonData = $validator->validated();
 
     // Extract the train_id from the JSON data
     $trainId = $jsonData['train_id'];
@@ -72,13 +88,7 @@ class PassengerController extends Controller
 
     if ($liveLocation) {
         // If a record exists, update it with the new data
-        $liveLocation->update([
-            'status' => $jsonData['status'],
-            'lat' => $jsonData['lat'],
-            'lng' => $jsonData['lng'],
-            'delay_time' => $jsonData['delay_time'],
-            'delay_status' => $jsonData['delay_status'],
-        ]);
+        $liveLocation->update($jsonData);
     } else {
         // If no record exists, create a new one
         $train = Train::find($trainId); // Assuming you have a Train model with train details
@@ -87,21 +97,15 @@ class PassengerController extends Controller
             return response()->json(['message' => 'Train not found'], 404);
         }
 
-        LiveLocation::create([
-            'train_id' => $trainId,
-            'status' => $jsonData['status'],
-            'lat' => $jsonData['lat'],
-            'lng' => $jsonData['lng'],
-            'delay_time' => $jsonData['delay_time'],
-            'delay_status' => $jsonData['delay_status'],
-        ]);
+        LiveLocation::create($jsonData);
     }
 
     // Return a success response
     return response()->json(['message' => 'Data inserted/updated successfully']);
 
 
-    
+
+
     }
 
 
