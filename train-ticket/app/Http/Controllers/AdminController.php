@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\LoyaltyDiscount;
 use App\Train;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -10,6 +11,11 @@ use App\User;
 
 class AdminController extends Controller
 {
+    public function __construct()
+    {
+//        $this->middleware('auth');
+        $this->middleware('admin');
+    }
     public function view_train(){
 
         $trains = Train::get();
@@ -31,8 +37,8 @@ class AdminController extends Controller
         $train->name = $request->input('trainname');
 //        if ($image = $request->file('picture')) {
         $image = $request->file('picture');
-            $path = Storage::putFile('/train', $image, 'public');
-            $train->image = $path;
+        $path = Storage::putFile('/train', $image, 'public');
+        $train->image = $path;
 //        }
         $train->from = $request->input('fromlocation');
         $train->to = $request->input('tolocation');
@@ -51,17 +57,30 @@ class AdminController extends Controller
     // show tickets
 
     public function showtickets(){
-
-         $tickets = Ticket::with('passenger.user', 'train')->get();
+        $tickets = Ticket::with('passenger.user', 'train')->get();
         return view('admin.tickets', ['tickets' => $tickets]);
+    }
+    public function users(){
+        $users = User::with(['passengers' => function ($query) {
+            $query->withCount('tickets');
+        }])->where('type', 'Passenger')->get();
 
-
+        return view('admin.users', ['users' => $users]);
     }
 
+    public function addtrain() {
+        return view('admin.addtrain');
+    }
     // edit discount
-
+    public function dashboard() {
+        return view('admin.dashboard');
+    }
     public function loyalitydiscountedit(){
 
         return view('admin.discountedit');
+    }
+    public function loyaltydiscount(){
+        $loyaltyDiscounts = LoyaltyDiscount::all();
+        return view('admin.loyalitydiscount', ['loyaltyDiscounts' => $loyaltyDiscounts]);
     }
 }

@@ -68,45 +68,27 @@ Route::get('/livelocation', function () {
 
 
 ///////////////////////////////////////////////////// admin panel routes ////////////////////////////////////////////////////////////////////////
-Route::get('/admin', function () {
-    return view('admin.dashboard');
-})->name('admin');
+Route::get('/admin', 'AdminController@dashboard')->name('admin');
 
 
 Route::get('/admin/trains', 'AdminController@view_train')->name('admin/trains');
 Route::get('/admin/trains/deactive/{id}', 'AdminController@train_deactive')->name('admin/trains/deactive');
 
-Route::get('/admin/addtrain', function () {
-    return view('admin.addtrain');
-})->name('admin add trains');
+Route::get('/admin/addtrain', 'AdminController@addtrain')->name('admin add trains');
 
 Route::post('/admin/addtrain/save', 'AdminController@save_train')->name('admin/addtrain/save');
 
 
 // all users table
-Route::get('/admin/users', function () {
-    $users = User::with(['passengers' => function ($query) {
-        $query->withCount('tickets');
-    }])->where('type', 'Passenger')->get();
-
-    return view('admin.users', ['users' => $users]);
-})->name('admin users');
+Route::get('/admin/users', 'AdminController@users')->name('admin users');
 
 
 //tickets view
-
-
-
-
 Route::get('/admin/tickets', 'AdminController@showtickets')->name('/admin/tickets');
 
 
 // discount
-
-Route::get('/admin/loyalitydiscount', function () {
-    $loyaltyDiscounts = LoyaltyDiscount::all();
-    return view('admin.loyalitydiscount', ['loyaltyDiscounts' => $loyaltyDiscounts]);
-})->name('admin.loyaltydiscount');
+Route::get('/admin/loyalitydiscount', 'AdminController@loyaltydiscount')->name('admin.loyaltydiscount');
 
 
 //discount edit
