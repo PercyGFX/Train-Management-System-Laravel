@@ -6,6 +6,7 @@ use App\Train;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Ticket;
+use App\User;
 
 class AdminController extends Controller
 {
@@ -51,8 +52,8 @@ class AdminController extends Controller
 
     public function showtickets(){
 
-    $cards = Ticket::all();
-    return view('admin.tickets', ['cards' => $cards]);
+        $tickets = Ticket::with(['user', 'train'])->get();
+        return view('admin.tickets', ['tickets' => $tickets]);
     
 
     }

@@ -43,19 +43,19 @@
                   </thead>
                   <tbody>
 
-                    @foreach ($cards as $ticket)
+                    @foreach ($tickets as $ticket)
                   
                     <!-- Display other ticket information here -->
 
                     <tr>
                       <td>{{ $ticket->id }}</td>
                       <td>{{ $ticket->created_at }}</td>
-                      <td>Ruhunu Kumari</td>
-                      <td>Nimal</td>
-                      <td>4</td>
-                      <td>2%</td>
-                      <td>1000</td>
-                      <td><span class="text-danger">Paid</span></td>
+                      <td>{{ $ticket->train_id }}</td>
+                      <td>{{ $ticket->user_id }}</td>
+                      <td>{{ $ticket->qty }}</td>
+                      <td>{{ $ticket->discount }}</td>
+                      <td>{{ $ticket->ticket_price }}</td>
+                      <td><span class="text-danger">{{ $ticket->status }}</span></td>
                     </tr>
 
 
