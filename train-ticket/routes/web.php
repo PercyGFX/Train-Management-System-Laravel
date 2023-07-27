@@ -67,7 +67,7 @@ Route::get('/livelocation', function () {
 })->name('livelocation');
 
 
-// admin panel routes ////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////// admin panel routes ////////////////////////////////////////////////////////////////////////
 Route::get('/admin', function () {
     return view('admin.dashboard');
 })->name('admin dashboard');
@@ -94,9 +94,11 @@ Route::get('/admin/users', function () {
 
 
 //tickets view
-Route::get('/admin/tickets', function () {
-    return view('admin.tickets');
-})->name('admin users');
+
+    
+
+
+Route::get('/admin/tickets', 'AdminController@showtickets')->name('/admin/tickets');
 
 
 // discount

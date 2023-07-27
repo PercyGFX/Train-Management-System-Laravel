@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Train;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use App\Ticket;
 
 class AdminController extends Controller
 {
@@ -43,5 +44,16 @@ class AdminController extends Controller
         $train->save();
 
         return redirect()->back()->with('success', 'Train Added Successfully');
+    }
+
+
+    // show tickets
+
+    public function showtickets(){
+
+    $cards = Ticket::all();
+    return view('admin.tickets', ['cards' => $cards]);
+    
+
     }
 }

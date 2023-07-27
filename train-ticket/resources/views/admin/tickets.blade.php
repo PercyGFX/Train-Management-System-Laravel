@@ -7,7 +7,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Trains</h1>
+            <h1 class="m-0">Tickets</h1>
           </div><!-- /.col -->
           
         </div><!-- /.row -->
@@ -24,7 +24,7 @@
         <div class="col-12">
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">All Trains</h3>
+                <h3 class="card-title">All Tickets</h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
@@ -42,16 +42,26 @@
                   </tr>
                   </thead>
                   <tbody>
-                  <tr>
-                    <td>1</td>
-                    <td>2023.7.1</td>
-                    <td>Ruhunu Kumari</td>
-                    <td>Nimal</td>
-                    <td>4</td>
-                    <td>2%</td>
-                    <td>1000</td>
-                    <td><span class="text-danger">Paid</span></td>
-                  </tr>
+
+                    @foreach ($cards as $ticket)
+                  
+                    <!-- Display other ticket information here -->
+
+                    <tr>
+                      <td>{{ $ticket->id }}</td>
+                      <td>{{ $ticket->created_at }}</td>
+                      <td>Ruhunu Kumari</td>
+                      <td>Nimal</td>
+                      <td>4</td>
+                      <td>2%</td>
+                      <td>1000</td>
+                      <td><span class="text-danger">Paid</span></td>
+                    </tr>
+
+
+                @endforeach
+                 
+                 
 
                  
                  
