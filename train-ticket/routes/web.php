@@ -37,11 +37,12 @@ Route::get('/trains', function () {
 
 //home page search
 
-Route::post('/', 'PassengerController@searchtrain')->name('search');
+//Route::post('/', 'UserController@searchtrain')->name('search');
+Route::post('/search', 'UserController@searchtrain')->name('home/search');
 
 //live location
 
-Route::get('/livelocation/{id}', 'PassengerController@liveLocation')->name('livelocation');
+Route::get('/livelocation/{id}', 'UserController@liveLocation')->name('livelocation');
 
 
 

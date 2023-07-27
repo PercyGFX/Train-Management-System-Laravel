@@ -43,7 +43,7 @@
             </div>
             <div class="col-12">
                 <div class="find_form_container">
-                    <form action="/" method="POST" id="find_form" class="find_form d-flex flex-md-row flex-column align-items-md-center align-items-start justify-content-md-between justify-content-start flex-wrap">
+                    <form action="{{ route('home/search') }}" method="POST" id="find_form" class="find_form d-flex flex-md-row flex-column align-items-md-center align-items-start justify-content-md-between justify-content-start flex-wrap">
                         @csrf
                         <div class="find_item">
                             <div>From Location:</div>
@@ -94,7 +94,7 @@
                 @if(isset($trains) && !$trains->isEmpty())
         <ul><h4 class="poppins"> Avilable Trains </h4>
             @foreach($trains as $train)
-               
+
                 <div class="m-3 card flex fexl-grow-1" style="max-width: 500px;">
                     <div class="row g-0">
                         <div class="col-sm-5">
@@ -129,7 +129,7 @@
                     <div class="col">
                         <div class="section_title text-center">
                             <h2>Ride the Rails: Unleash Your Adventure with us!</h2>
-                           
+
                         </div>
                     </div>
                 </div>
@@ -143,21 +143,21 @@
                     <div class="col-lg-6 about_col order-lg-2 order-1">
                         <div class="about_image">
                             <img src=" {{ asset('frontend/images/about.jpg') }}" alt="">
-                           
+
                         </div>
                     </div>
                 </div>
             </div>
         </div>
         @endif
-  
-    
+
+
 
     @endif
 
 
                 <!-- Item -->
-             
+
 
               <!-- Item -->
 

@@ -13,7 +13,6 @@ class AdminController extends Controller
 {
     public function __construct()
     {
-//        $this->middleware('auth');
         $this->middleware('admin');
     }
     public function view_train(){
@@ -80,7 +79,7 @@ class AdminController extends Controller
     public function loyalitydiscountedit($id){
 
         $loyaltyDiscount = LoyaltyDiscount::find($id);
-   
+
         // Pass the row to the view
         return view('admin.discountedit', compact('loyaltyDiscount'));
     }
