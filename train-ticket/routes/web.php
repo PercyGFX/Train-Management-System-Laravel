@@ -35,6 +35,10 @@ Route::get('/trains', function () {
 
 Route::post('/', 'PassengerController@searchtrain')->name('search');
 
+//live location
+
+Route::get('/livelocation/{id}', 'PassengerController@liveLocation')->name('livelocation');
+
 
 Route::get('/loyalty', function () {
     return view('user.loyalty');
