@@ -57,6 +57,53 @@ class PassengerController extends Controller
         }
     }
 
+    //location update
+
+    public function locationupdate(Request $request){
+
+      // Get the JSON data from the request
+    $jsonData = $request->input();
+
+    // Extract the train_id from the JSON data
+    $trainId = $jsonData['train_id'];
+
+    // Check if a record with the given train_id exists in the LiveLocation model
+    $liveLocation = LiveLocation::where('train_id', $trainId)->first();
+
+    if ($liveLocation) {
+        // If a record exists, update it with the new data
+        $liveLocation->update([
+            'status' => $jsonData['status'],
+            'lat' => $jsonData['lat'],
+            'lng' => $jsonData['lng'],
+            'delay_time' => $jsonData['delay_time'],
+            'delay_status' => $jsonData['delay_status'],
+        ]);
+    } else {
+        // If no record exists, create a new one
+        $train = Train::find($trainId); // Assuming you have a Train model with train details
+        if (!$train) {
+            // Handle the case where the associated train does not exist
+            return response()->json(['message' => 'Train not found'], 404);
+        }
+
+        LiveLocation::create([
+            'train_id' => $trainId,
+            'status' => $jsonData['status'],
+            'lat' => $jsonData['lat'],
+            'lng' => $jsonData['lng'],
+            'delay_time' => $jsonData['delay_time'],
+            'delay_status' => $jsonData['delay_status'],
+        ]);
+    }
+
+    // Return a success response
+    return response()->json(['message' => 'Data inserted/updated successfully']);
+
+
+    
+    }
+
 
 
 }
