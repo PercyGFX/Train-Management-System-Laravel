@@ -58,7 +58,7 @@
 {{--                                            </li>--}}
 {{--                                        @endif--}}
                                     @else
-                                        <li class="main_nav_item" {{request()->routeIs('userpanel') ? 'active' : ''}}><a href="{{ route('userpanel') }}">User Panel</a></li>
+                                        <li class="main_nav_item {{request()->routeIs('userpanel') ? 'active' : ''}}"><a href="{{ route('userpanel') }}">User Panel</a></li>
                                         <li class="main_nav_item"><a   href="{{ route('logout') }}"
                                                                      onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
