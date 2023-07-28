@@ -138,6 +138,36 @@ class PassengerController extends Controller
             'status' => 'Pending', // Hard-coded status as "Pending"
         ]);
 
+       $user = Passenger::with('user')->find($passenger_id);
+       $train = $ticket->train;
+
+
+  
+      
+
+       $testMailData = [
+        'title' => 'E-Train - Your Ticket Details',
+        'body' => '<p style="font-weight: bold; color: #333;">Name: <span style="color: #ff6600;">' . $user->user->fname . ' '. $user->user->lname . '</span><br>
+                   Ticket Id: <span style="color: #ff6600;">' . $ticket->id . '</span><br>
+                   Ticket Price: <span style="color: #ff6600;">' . $ticket->ticket_price . '</span><br>
+                   Discount: <span style="color: #ff6600;">' . $ticket->discount . '</span><br>' . 
+                   'Total Price: <span style="color: #ff6600;">' . $ticket->totle_price . '</span><br>' .
+                   'Payment Status: <span style="color: #ff6600;">' . $ticket->status . '</span><br>' .
+                   'Train Name: <span style="color: #ff6600;">' . $train->name . '</span><br>' .
+                   'From Location: <span style="color: #ff6600;">' . $train->from . '</span><br>' .
+                   'To Location: <span style="color: #ff6600;">' . $train->to . '</span><br>' .
+                   'Date: <span style="color: #ff6600;">' . $train->date . '</span><br>' .
+                   'Start Time: <span style="color: #ff6600;">' . $train->from_time . '</span></p><br>'
+                   ,
+                   
+    ];
+    
+
+    //send mail to company email
+  Mail::to($user->user->email)->send(new TestMail($testMailData));
+   //Mail::to('isurangabtk@gmail.com')->send(new TestMail($testMailData));
+
+
    
 
 
