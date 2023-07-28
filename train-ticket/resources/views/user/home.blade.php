@@ -110,7 +110,7 @@
                                 <h4 class="poppins"><span class="font-weight-bold">Arrival Time:</span> {{ $train->to_time }}</h4>
                                 <h4 class="poppins text-success"><span class="font-weight-bold">Ticket Price:</span> RS {{ $train->ticket_price }}</h4>
 
-                                <a href="#" class="btn btn-primary stretched-link ">Book Seats</a><a href="/livelocation/{{ $train->id }}" class="ml-2 btn btn-success stretched-link">Live Track</a>
+                                <a href="#" class="btn btn-primary stretched-link " onclick="showBookSeatsModal('{{ $train->id }}', '{{ $train->name }}', {{ $train->ticket_price }})">Book Seats</a><a href="/livelocation/{{ $train->id }}" class="ml-2 btn btn-success stretched-link">Live Track</a>
 
                             </div>
                         </div>

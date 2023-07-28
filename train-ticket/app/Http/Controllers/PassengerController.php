@@ -144,8 +144,8 @@ class PassengerController extends Controller
           // Prepare the payment data
     $paymentData = [
         'merchant_id' => '1223617',
-        'return_url' => route('userpanel'), // The URL to redirect after payment (callback URL)
-        'cancel_url' => route('userpanel'), // The URL to redirect if the user cancels the payment
+        'return_url' => route('ticket'), // The URL to redirect after payment (callback URL)
+        'cancel_url' => route('ticket'), // The URL to redirect if the user cancels the payment
         'notify_url' => route('notify'),
         'first_name' => 'nimal',
         'last_name' => 'kamal',
@@ -189,10 +189,10 @@ $paymentData['hash'] = $hash;
 
     public function ticket(Request $request){
 
-        $ticketId = $request->input('id');
+        $ticketId = $request->input('order_id');
 
         // Find the ticket by its ID with the related passenger and train information using eager loading
-        $ticketId = $request->input('id');
+   
 
         // Find the ticket by its ID with the related passenger and train information using eager loading
         $ticket = Ticket::with('passenger', 'train')->find($ticketId);

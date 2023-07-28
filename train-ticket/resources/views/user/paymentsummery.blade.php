@@ -301,7 +301,9 @@
 						<div class="headers clearfix ">
 							<div class="row d-flex justify-content-between">
 								<div class="col-xs-4">Ordered Ticket</div>
+                                
                                 <div class="col-xs-4">QTY</div>
+                                
                                 <div class="col-xs-4">Total</div>
 							
 							</div>
@@ -309,7 +311,9 @@
 						<div class="items">
 							<div class="row item d-flex justify-content-between">
 								<div class="col-xs-4 desc">
-									{{$train->name}} - {{$train->date}} - {{$train->from_time}} 
+									{{$train->name}} 
+                                    <p> {{$train->date}} - {{$train->from_time}} </p>
+                                    <p> {{ $train->ticket_price }} LKR</p>
 								</div>
 								<div class="col-xs-3 qty">
 									{{ $qty }}
