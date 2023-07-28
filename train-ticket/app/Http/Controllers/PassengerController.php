@@ -9,6 +9,7 @@ use App\Mail\TestMail;
 use App\Ticket;
 use App\LoyaltyDiscount;
 use App\Passenger;
+use App\User;
 use GuzzleHttp\Client;
 use Illuminate\Support\Facades\Config;
 
@@ -33,7 +34,10 @@ class PassengerController extends Controller
         $passenger = Passenger::where('user_id', $user->id)->first();
     
 
-         $tickets = Ticket::where('passenger_id', $passenger->id)->with('train')->get();
+        $tickets = Ticket::where('passenger_id', $passenger->id)
+        ->with('train')
+        ->orderBy('id', 'desc')
+        ->get();
 
         // Pass the tickets data to the view
          return view('user.userpanel', compact('tickets'));
@@ -178,6 +182,28 @@ $paymentData['hash'] = $hash;
     return view('user.payment_redirect', compact('paymentData'));
 
      
+    }
+
+    //ticket
+
+
+    public function ticket(Request $request){
+
+        $ticketId = $request->input('id');
+
+        // Find the ticket by its ID with the related passenger and train information using eager loading
+        $ticketId = $request->input('id');
+
+        // Find the ticket by its ID with the related passenger and train information using eager loading
+        $ticket = Ticket::with('passenger', 'train')->find($ticketId);
+    
+        // Retrieve the User model details based on the passenger's user_id
+        $user = $ticket->passenger->user;
+    
+        // Pass the ticket, passenger, train, and user data to the view
+        return view('user.ticket', compact('ticket', 'user'));
+
+       
     }
 
 

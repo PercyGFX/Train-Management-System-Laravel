@@ -64,13 +64,15 @@ Route::get('/contact', function () {
 
 Route::get('/userpanel', 'PassengerController@userpanel')->name('userpanel');
 
+//ticket view
+
+Route::get('/ticket', 'PassengerController@ticket')->name('ticket');
+
 //payments
 Route::post('/summery', 'PassengerController@paymentsummery')->name('paymentsummery');
 Route::post('/initiatePayment', 'PassengerController@initiatePayment')->name('initiatePayment');
 
-Route::post('/paymentdone', 'PassengerController@paymentdone')->name('paymentdone');
-Route::post('/paymentfail', 'PassengerController@paymentfail')->name('paymentfail');
-
+//notify url from payhere
 Route::post('/notify', 'UserController@notify')->name('notify');
 
 
