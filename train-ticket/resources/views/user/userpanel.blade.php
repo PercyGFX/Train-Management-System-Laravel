@@ -69,7 +69,7 @@
                 <td>{{$ticket->discount}}</td>
                 <td>{{$ticket->totle_price}}</td>
                 <td><strong class="text-primary">{{$ticket->status}}<strong></td>
-                <td><a href="/ticket/?id={{$ticket->id}}" class="btn btn-info">View</a></td>
+                <td><a href="/ticket/?order_id={{$ticket->id}}" class="btn btn-info">View</a></td>
             </tr>
             @endforeach
           
