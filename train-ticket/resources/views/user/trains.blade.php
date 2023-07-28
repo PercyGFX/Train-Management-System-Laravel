@@ -170,6 +170,17 @@
         csrfTokenField.name = '_token';
         csrfTokenField.value = '{{ csrf_token() }}'; // Laravel Blade directive to generate CSRF token
 
+        // Check if the user is authenticated before adding the user ID field
+        @auth
+            // Create user ID input field
+            const userIdField = document.createElement('input');
+            userIdField.type = 'hidden';
+            userIdField.name = 'user_id';
+            userIdField.value = '{{ auth()->user()->id }}'; // Laravel Blade directive to get the user ID
+            // Append the user ID field to the form
+            form.appendChild(userIdField);
+        @endauth
+
         // Append the input fields to the form
         form.appendChild(trainIdField);
         form.appendChild(trainNameField);

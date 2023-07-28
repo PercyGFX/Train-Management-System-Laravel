@@ -250,7 +250,7 @@
 					<div class="intro">
 						Hi <strong>{{ auth()->user()->fname }}</strong>, 
 						<br>
-						This is the receipt for a payment for your tickets.
+						This is the receipt for a payment of <strong>{{$total}} LKR</strong> for your tickets.
 					</div>
 
 					<div class="payment-info">
@@ -261,7 +261,7 @@
 							</div>
 							<div class="col-sm-6 text-right">
 								<span>Payment Date</span>
-								<strong>Jul 09, 2014 - 12:20 pm</strong>
+								<strong>{{$train->date}}</strong>
 							</div>
 						</div>
 					</div>
@@ -309,13 +309,13 @@
 						<div class="items">
 							<div class="row item d-flex justify-content-between">
 								<div class="col-xs-4 desc">
-									Ruhunu Kumari
+									{{$train->name}}
 								</div>
 								<div class="col-xs-3 qty">
-									3
+									{{ $qty }}
 								</div>
 								<div class="col-xs-5 amount text-right">
-									600 LKR
+									{{$total}} LKR
 								</div>
 							</div>
 							
@@ -326,14 +326,14 @@
 								Please contact support if you encounter any issues.
 							</p>
 							<div class="field">
-								Subtotal <span>600 LKR</span>
+								Subtotal <span>{{$subtotal}} LKR</span>
 							</div>
 					
 							<div class="field">
-								Discount <span>4.5%</span>
+								Discount <span>{{$discount}}%</span>
 							</div>
 							<div class="field grand-total">
-								Total <span>$312.00</span>
+								Total <span>{{$total}} LKR</span>
 							</div>
 						</div>
 
