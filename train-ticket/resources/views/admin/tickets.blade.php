@@ -54,7 +54,7 @@
                       <td>{{ $ticket->passenger->user->fname }} {{ $ticket->passenger->user->lname }}</td>
                       <td>{{ $ticket->qty }}</td>
                       <td>{{ $ticket->discount }}</td>
-                      <td>{{ $ticket->ticket_price }}</td>
+                      <td>{{ $ticket->totle_price }}</td>
                       <td><span class="text-danger">{{ $ticket->status }}</span></td>
                     </tr>
 
