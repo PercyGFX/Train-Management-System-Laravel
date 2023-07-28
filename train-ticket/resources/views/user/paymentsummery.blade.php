@@ -250,7 +250,7 @@
 					<div class="intro">
 						Hi <strong>{{ auth()->user()->fname }}</strong>, 
 						<br>
-						This is the receipt for a payment of <strong>$312.00</strong> (USD) for your works
+						This is the receipt for a payment for your tickets.
 					</div>
 
 					<div class="payment-info">
@@ -299,59 +299,36 @@
 
 					<div class="line-items ">
 						<div class="headers clearfix ">
-							<div class="row">
-								<div class="col-xs-4">Description</div>
-								<div class="col-xs-3">Quantity</div>
-								<div class="col-xs-5 text-right">Amount</div>
+							<div class="row d-flex justify-content-between">
+								<div class="col-xs-4">Ordered Ticket</div>
+                                <div class="col-xs-4">QTY</div>
+                                <div class="col-xs-4">Total</div>
+							
 							</div>
 						</div>
 						<div class="items">
-							<div class="row item">
+							<div class="row item d-flex justify-content-between">
 								<div class="col-xs-4 desc">
-									Html theme
+									Ruhunu Kumari
 								</div>
 								<div class="col-xs-3 qty">
 									3
 								</div>
 								<div class="col-xs-5 amount text-right">
-									$60.00
+									600 LKR
 								</div>
 							</div>
-							<div class="row item">
-								<div class="col-xs-4 desc">
-									Bootstrap snippet
-								</div>
-								<div class="col-xs-3 qty">
-									1
-								</div>
-								<div class="col-xs-5 amount text-right">
-									$20.00
-								</div>
-							</div>
-							<div class="row item">
-								<div class="col-xs-4 desc">
-									Snippets on bootdey 
-								</div>
-								<div class="col-xs-3 qty">
-									2
-								</div>
-								<div class="col-xs-5 amount text-right">
-									$18.00
-								</div>
-							</div>
+							
 						</div>
 						<div class="total text-right">
 							<p class="extra-notes">
 								<strong>Extra Notes</strong>
-								Please send all items at the same time to shipping address by next week.
-								Thanks a lot.
+								Please contact support if you encounter any issues.
 							</p>
 							<div class="field">
-								Subtotal <span>$379.00</span>
+								Subtotal <span>600 LKR</span>
 							</div>
-							<div class="field">
-								Shipping <span>$0.00</span>
-							</div>
+					
 							<div class="field">
 								Discount <span>4.5%</span>
 							</div>
