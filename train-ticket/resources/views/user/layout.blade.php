@@ -147,7 +147,7 @@
                             </div>
                             <div class="footer_about_text">We make your travel easier!</div>
 
-                            <img src="https://www.payhere.lk/downloads/images/payhere_short_banner_dark.png" width="60%" />
+                            <img src="{{ asset('frontend/payhere.png')}}" width="60%" />
                         </div>
                     </div>
                 </div>

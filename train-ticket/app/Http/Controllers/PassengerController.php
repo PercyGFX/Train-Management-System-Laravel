@@ -53,11 +53,16 @@ class PassengerController extends Controller
 
     // Count the number of tickets for the passenger in the Tickets table
     $ticketCount = Ticket::where('passenger_id', $passenger->id)->count();
+ 
 
     // Get the closest lower value row from the LoyaltyDiscount model
     $loyaltyDiscount = LoyaltyDiscount::where('ticket_count', '<=', $ticketCount)
         ->orderBy('ticket_count', 'desc')
         ->first();
+
+       
+
+        
 
     // If there is no closest lower value, get the lowest ticket_count value
     if (!$loyaltyDiscount) {
@@ -66,7 +71,7 @@ class PassengerController extends Controller
         $discountPercentage = 0;
     } else {
         $badge = $loyaltyDiscount->badge;
-        $discountPercentage = $loyaltyDiscount->discount_percentage;
+        $discountPercentage = $loyaltyDiscount->dicount_precentage;
     }
 
     // Get the Train model data
@@ -82,7 +87,7 @@ class PassengerController extends Controller
     $total = $subtotal - $discount;
 
     // Pass the required data to the view
-    return view('user.paymentsummery', compact('train_id', 'qty', 'passenger', 'train', 'loyaltyDiscount', 'total', 'badge', 'discount', 'subtotal'));
+    return view('user.paymentsummery', compact('train_id', 'qty', 'passenger', 'train', 'loyaltyDiscount', 'total', 'badge', 'discount', 'subtotal', 'discountPercentage'));
 
         
     }

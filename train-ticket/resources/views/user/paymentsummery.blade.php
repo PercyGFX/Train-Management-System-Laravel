@@ -271,7 +271,7 @@
 							<div class="col-sm-6">
 								<span>Client</span>
 								<strong>
-									{{ auth()->user()->fname }} {{ auth()->user()->lname }}
+									{{ auth()->user()->fname }} {{ auth()->user()->lname }} <strong><span class="text-warning">{{$badge}} </span>	</strong>
 								</strong>
 								<p>
 									<a href="#">
@@ -309,7 +309,7 @@
 						<div class="items">
 							<div class="row item d-flex justify-content-between">
 								<div class="col-xs-4 desc">
-									{{$train->name}}
+									{{$train->name}} - {{$train->date}} - {{$train->from_time}} 
 								</div>
 								<div class="col-xs-3 qty">
 									{{ $qty }}
@@ -330,7 +330,10 @@
 							</div>
 					
 							<div class="field">
-								Discount <span>{{$discount}}%</span>
+								Discount <span>{{$discountPercentage}}%</span>
+							</div>
+                            <div class="field">
+								 <span>{{$discount}} LKR</span>
 							</div>
 							<div class="field grand-total">
 								Total <span>{{$total}} LKR</span>
