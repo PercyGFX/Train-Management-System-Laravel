@@ -32,7 +32,7 @@ class PassengerController extends Controller
 
         // Get the passenger associated with the authenticated user using the user_id foreign key
         $passenger = Passenger::where('user_id', $user->id)->first();
-    
+
 
         $tickets = Ticket::where('passenger_id', $passenger->id)
         ->with('train')
@@ -42,14 +42,14 @@ class PassengerController extends Controller
         // Pass the tickets data to the view
          return view('user.userpanel', compact('tickets'));
 
-        
+
     }
 
 
     //payment summery
     public function paymentsummery(Request $request){
 
-        
+
         $train_id = $request->trainId;
     $qty = $request->quantity;
 
@@ -67,19 +67,19 @@ class PassengerController extends Controller
     }
 
     // Count the number of tickets for the passenger in the Tickets table
-   
+
    // $ticketCount = Ticket::where('passenger_id', $passenger->id)->count();
 
     // Calculate the total quantity of tickets for the passenger from the Ticket model
     $ticketCount = Ticket::where('passenger_id', $passenger->id)->sum('qty');
 
- 
+
 
     // Get the closest lower value row from the LoyaltyDiscount model
     $loyaltyDiscount = LoyaltyDiscount::where('ticket_count', '<=', $ticketCount)
         ->orderBy('ticket_count', 'desc')
         ->first();
-        
+
 
     // If there is no closest lower value, get the lowest ticket_count value
     if (!$loyaltyDiscount) {
@@ -106,7 +106,7 @@ class PassengerController extends Controller
     // Pass the required data to the view
     return view('user.paymentsummery', compact('train_id', 'qty', 'passenger', 'train', 'loyaltyDiscount', 'total', 'badge', 'discount', 'subtotal', 'discountPercentage'));
 
-        
+
     }
 
 
@@ -125,7 +125,7 @@ class PassengerController extends Controller
         $train_name = $request->train_name;
 
 
-       
+
 
         // Save the ticket data to the database
         $ticket = Ticket::create([
@@ -142,15 +142,15 @@ class PassengerController extends Controller
        $train = $ticket->train;
 
 
-  
-      
+
+
 
        $testMailData = [
         'title' => 'E-Train - Your Ticket Details',
         'body' => '<p style="font-weight: bold; color: #333;">Name: <span style="color: #ff6600;">' . $user->user->fname . ' '. $user->user->lname . '</span><br>
                    Ticket Id: <span style="color: #ff6600;">' . $ticket->id . '</span><br>
                    Ticket Price: <span style="color: #ff6600;">' . $ticket->ticket_price . '</span><br>
-                   Discount: <span style="color: #ff6600;">' . $ticket->discount . '</span><br>' . 
+                   Discount: <span style="color: #ff6600;">' . $ticket->discount . '</span><br>' .
                    'Total Price: <span style="color: #ff6600;">' . $ticket->totle_price . '</span><br>' .
                    'Payment Status: <span style="color: #ff6600;">' . $ticket->status . '</span><br>' .
                    'Train Name: <span style="color: #ff6600;">' . $train->name . '</span><br>' .
@@ -159,16 +159,16 @@ class PassengerController extends Controller
                    'Date: <span style="color: #ff6600;">' . $train->date . '</span><br>' .
                    'Start Time: <span style="color: #ff6600;">' . $train->from_time . '</span></p><br>'
                    ,
-                   
+
     ];
-    
+
 
     //send mail to company email
   Mail::to($user->user->email)->send(new TestMail($testMailData));
    //Mail::to('isurangabtk@gmail.com')->send(new TestMail($testMailData));
 
 
-   
+
 
 
           // Prepare the payment data
@@ -187,7 +187,7 @@ class PassengerController extends Controller
         'order_id' => $ticket->id,
         'items' => $train_name,
         'currency' => 'LKR', // Currency code (LKR for Sri Lankan Rupees)
-        'amount' => $total_price, 
+        'amount' => $total_price,
         // Add other relevant data as needed
     ];
 
@@ -197,12 +197,12 @@ class PassengerController extends Controller
 // Step 2: Calculate the MD5 hash of the concatenated data
 $hash = strtoupper(
     md5(
-        $paymentData['merchant_id'] . 
-        $paymentData['order_id'] . 
-        number_format($paymentData['amount'], 2, '.', '') . 
-        $paymentData['currency'] .  
-        strtoupper(md5($merchant_secret)) 
-    ) 
+        $paymentData['merchant_id'] .
+        $paymentData['order_id'] .
+        number_format($paymentData['amount'], 2, '.', '') .
+        $paymentData['currency'] .
+        strtoupper(md5($merchant_secret))
+    )
 );
 
 
@@ -211,7 +211,7 @@ $paymentData['hash'] = $hash;
 
     return view('user.payment_redirect', compact('paymentData'));
 
-     
+
     }
 
     //ticket
@@ -222,18 +222,18 @@ $paymentData['hash'] = $hash;
         $ticketId = $request->input('order_id');
 
         // Find the ticket by its ID with the related passenger and train information using eager loading
-   
+
 
         // Find the ticket by its ID with the related passenger and train information using eager loading
         $ticket = Ticket::with('passenger', 'train')->find($ticketId);
-    
+
         // Retrieve the User model details based on the passenger's user_id
         $user = $ticket->passenger->user;
-    
+
         // Pass the ticket, passenger, train, and user data to the view
         return view('user.ticket', compact('ticket', 'user'));
 
-       
+
     }
 
 

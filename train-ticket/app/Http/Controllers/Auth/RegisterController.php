@@ -80,7 +80,7 @@ class RegisterController extends Controller
         $passenger->nic = $data['nic'];
         $passenger->phone = $data['phone'];
         $passenger->city = $data['city'];
-
+        $passenger->save();
         return $user;
     }
 }
