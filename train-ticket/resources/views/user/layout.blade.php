@@ -157,6 +157,9 @@
         </footer>
     </div>
 
+    <script src="//code.jivosite.com/widget/nYpCjukm5c" async></script>
+
+
     <script src="{{ asset('frontend/js/jquery-3.2.1.min.js') }}"></script>
     <script src="{{ asset('frontend/styles/bootstrap4/popper.js') }}"></script>
     <script src="{{ asset('frontend/styles/bootstrap4/bootstrap.min.js') }}"></script>
