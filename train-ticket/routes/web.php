@@ -64,6 +64,8 @@ Route::get('/contact', function () {
 
 Route::get('/userpanel', 'PassengerController@userpanel')->name('userpanel');
 
+Route::post('/summery', 'PassengerController@paymentsummery')->name('paymentsummery');
+
 
 
 ///////////////////////////////////////////////////// admin panel routes ////////////////////////////////////////////////////////////////////////

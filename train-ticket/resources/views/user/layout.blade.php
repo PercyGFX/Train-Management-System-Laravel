@@ -142,8 +142,12 @@
                                     <div>ETrain</div>
                                     <div>travel agency</div>
 
+                                   
+
                             </div>
                             <div class="footer_about_text">We make your travel easier!</div>
+
+                            <img src="https://www.payhere.lk/downloads/images/payhere_short_banner_dark.png" width="60%" />
                         </div>
                     </div>
                 </div>
@@ -152,12 +156,16 @@
                     <script>
                         document.write(new Date().getFullYear());
                     </script> <i class="fa fa-heart-o" aria-hidden="true"></i>
+                   
                 </div>
+               
             </div>
         </footer>
     </div>
 
     <script src="//code.jivosite.com/widget/nYpCjukm5c" async></script>
+
+    
 
 
     <script src="{{ asset('frontend/js/jquery-3.2.1.min.js') }}"></script>

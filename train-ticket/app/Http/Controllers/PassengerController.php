@@ -31,6 +31,16 @@ class PassengerController extends Controller
         return view('user.userpanel');
     }
 
+    public function paymentsummery(Request $request){
+
+        
+
+        $train_id = $request->trainId;
+        $qty = $request->quantity;
+
+        return view('user.paymentsummery');
+    }
+
 
 
 
