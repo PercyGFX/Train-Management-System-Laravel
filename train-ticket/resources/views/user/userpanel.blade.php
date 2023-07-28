@@ -61,7 +61,7 @@
           @foreach($tickets as $ticket)
             <tr>
                 <td>{{$ticket->id}}</td>
-                <td>{{$ticket->date}}</td>
+                <td>{{$ticket->train->date}}</td>
                 <td>{{ $ticket->train->name }}</td>
                 <td>{{ $ticket->train->from }}</td>
                 <td>{{ $ticket->train->to }}</td>
