@@ -8,7 +8,7 @@
           <div class="col-sm-6">
             <h1 class="m-0">Dashboard</h1>
           </div><!-- /.col -->
-          
+
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
     </div>
@@ -23,14 +23,20 @@
             <!-- small box -->
             <div class="small-box bg-info">
               <div class="inner">
-                <h3>150</h3>
+                <h3>{{ \App\Ticket::whereIn('id',\App\Train::select('id')->whereDate('date', \Carbon\Carbon::today())->get()->pluck('id'))->count() }}</h3>
 
-                <p>Tickets Today</p>
+
+
+{{--                <h3>{{ \App\Train::select('id')->whereDate('date', \Carbon\Carbon::today())->get()->pluck('id') }}</h3>--}}
+
+{{--                <h3>{{ \App\Train::select('id')->whereDate('date', \Carbon\Carbon::today())->get()->pluck('id') }}</h3>--}}
+
+                <p>Today Tickets</p>
               </div>
               <div class="icon">
                 <i class="ion ion-bag"></i>
               </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="{{ route('/admin/tickets') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -38,14 +44,14 @@
             <!-- small box -->
             <div class="small-box bg-success">
               <div class="inner">
-                <h3>5300 LKR</sup></h3>
+                <h3>{{ \App\Ticket::select('totle_price')->get()->sum('totle_price') }} LKR</sup></h3>
 
-                <p>Revenue Today</p>
+                <p>Revenue</p>
               </div>
               <div class="icon">
                 <i class="ion ion-stats-bars"></i>
               </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="{{ route('/admin/tickets') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -53,14 +59,14 @@
             <!-- small box -->
             <div class="small-box bg-warning">
               <div class="inner">
-                <h3>4</h3>
+                <h3>{{ \App\User::whereDate('created_at', \Carbon\Carbon::today())->count() }}</h3>
 
                 <p>New Users Today</p>
               </div>
               <div class="icon">
                 <i class="ion ion-person-add"></i>
               </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="{{ route('admin users') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -68,7 +74,7 @@
             <!-- small box -->
             <div class="small-box bg-danger">
               <div class="inner">
-                <h3>6</h3>
+                <h3>{{ \App\Train::whereDate('date', \Carbon\Carbon::today())->count() }}</h3>
 
                 <p>Trains Today</p>
               </div>
@@ -107,7 +113,7 @@
               </div>
               <div class="card-body">
                 <div class="tab-content p-0">
-                 
+
                   <div class="chart tab-pane active" id="revenue-chart"
                        style="position: relative; height: 300px;">
                       <canvas id="revenue-chart-canvas" height="300" style="height: 300px;"></canvas>
@@ -121,15 +127,15 @@
 
             -->
 
-            
-          
-    
-              
+
+
+
+
             </div>
             <!-- /.card -->
           </section>
           <!-- /.Left col -->
-         
+
         </div>
         <!-- /.row (main row) -->
       </div><!-- /.container-fluid -->
