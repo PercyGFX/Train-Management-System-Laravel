@@ -52,7 +52,13 @@ class PassengerController extends Controller
     }
 
     // Count the number of tickets for the passenger in the Tickets table
-    $ticketCount = Ticket::where('passenger_id', $passenger->id)->count();
+   
+   // $ticketCount = Ticket::where('passenger_id', $passenger->id)->count();
+
+    // Calculate the total quantity of tickets for the passenger from the Ticket model
+    $ticketCount = Ticket::where('passenger_id', $passenger->id)->sum('qty');
+
+   
  
 
     // Get the closest lower value row from the LoyaltyDiscount model
