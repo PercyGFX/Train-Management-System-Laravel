@@ -341,7 +341,21 @@
 						</div>
 
 						<div class="print">
-							<a href="#" class="btn btn-success">Payment</a>
+                            <form method="POST" action="{{ route("initiatePayment") }}">
+                                @csrf
+                                <!-- Add the hidden fields -->
+                                <input type="hidden" name="passenger_id" value="{{$passenger->id}}">
+                                <input type="hidden" name="train_id" value="{{$train->id}}">
+                                <input type="hidden" name="qty" value="{{$qty}}">
+                                <input type="hidden" name="discount" value="{{$discount}}">
+                                <input type="hidden" name="ticket_price" value="{{$train->ticket_price}}">
+                                <input type="hidden" name="total_price" value="{{$total}}">
+                                <input type="hidden" name="train_name" value="{{$train->name}}">
+                            
+                                <!-- Add the button for payment -->
+                                <button type="submit" class="btn btn-success">Payment</button>
+                            </form>
+                            
 						</div>
 					</div>
 				</div>

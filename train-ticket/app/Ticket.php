@@ -15,4 +15,15 @@ class Ticket extends Model
     {
         return $this->belongsTo('App\Train');
     }
+
+    protected $fillable = [
+        'passenger_id',
+        'train_id',
+        'qty',
+        'discount',
+        'ticket_price',
+        'totle_price',
+        'train_name',
+        'status',
+    ];
 }

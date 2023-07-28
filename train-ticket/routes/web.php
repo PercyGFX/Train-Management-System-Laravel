@@ -64,7 +64,18 @@ Route::get('/contact', function () {
 
 Route::get('/userpanel', 'PassengerController@userpanel')->name('userpanel');
 
+//payments
 Route::post('/summery', 'PassengerController@paymentsummery')->name('paymentsummery');
+Route::post('/initiatePayment', 'PassengerController@initiatePayment')->name('initiatePayment');
+
+Route::post('/paymentdone', 'PassengerController@paymentdone')->name('paymentdone');
+Route::post('/paymentfail', 'PassengerController@paymentfail')->name('paymentfail');
+
+Route::post('/notify', 'UserController@notify')->name('notify');
+
+
+
+
 
 
 

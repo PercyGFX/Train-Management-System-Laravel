@@ -14,6 +14,8 @@ class VerifyCsrfToken extends Middleware
     protected $except = [
         // Add your API routes here that should be excluded from CSRF protection
         '/api/locationupdate',
-        '/locationupdate'
+        '/locationupdate',
+        '/notify',
+
     ];
 }

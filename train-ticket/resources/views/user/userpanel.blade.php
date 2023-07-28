@@ -53,20 +53,25 @@
                 <th>Discount</th>
                 <th>Amount</th>
                 <th>Payment Status</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody>
+
+          @foreach($tickets as $ticket)
             <tr>
-                <td>1</td>
-                <td>2023.7.30</td>
-                <td>Ruhunu Kumari</td>
-                <td>Galle</td>
-                <td>Colombo</td>
-                <td>5</td>
-                <td>0</td>
-                <td>1000 LKR</td>
-                <td>DONE</td>
+                <td>{{$ticket->id}}</td>
+                <td>{{$ticket->date}}</td>
+                <td>{{ $ticket->train->name }}</td>
+                <td>{{ $ticket->train->from }}</td>
+                <td>{{ $ticket->train->to }}</td>
+                <td>{{$ticket->qty}}</td>
+                <td>{{$ticket->discount}}</td>
+                <td>{{$ticket->totle_price}}</td>
+                <td><strong class="text-primary">{{$ticket->status}}<strong></td>
+                <td><a href="/ticket/?id={{$ticket->id}}" class="btn btn-info">View</a></td>
             </tr>
+            @endforeach
           
         </tbody>
         

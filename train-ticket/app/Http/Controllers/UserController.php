@@ -188,5 +188,48 @@ class UserController extends Controller
 
     }
 
+//notify callback
+    public function notify(Request $request){
+
+        $payment_status = $request->status_code;
+        $ticket_id = $request->order_id;
+
+
+         // Find the Ticket record using the $ticket_id
+    $ticket = Ticket::find($ticket_id);
+
+    // Update the status based on the $payment_status
+    switch ($payment_status) {
+        case '2':
+            $ticket->status = 'Completed';
+            break;
+        case '0':
+            $ticket->status = 'Pending';
+            break;
+        case '-1':
+            $ticket->status = 'Canceled';
+            break;
+        case '-2':
+            $ticket->status = 'Failed';
+            break;
+        case '-3':
+            $ticket->status = 'Charged Back';
+            break;
+        default:
+            // Handle other cases, if needed
+            break;
+    }
+
+    // Save the updated ticket status
+    $ticket->save();
+
+    // Return a response to PayHere (important for the payment process to be completed)
+    return response()->json(['status' => 'success']);
+
+  
+    }
+    
+
 
 }
+

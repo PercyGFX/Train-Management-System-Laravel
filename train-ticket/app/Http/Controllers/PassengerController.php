@@ -9,6 +9,8 @@ use App\Mail\TestMail;
 use App\Ticket;
 use App\LoyaltyDiscount;
 use App\Passenger;
+use GuzzleHttp\Client;
+use Illuminate\Support\Facades\Config;
 
 use Illuminate\Http\Request;
 
@@ -25,13 +27,22 @@ class PassengerController extends Controller
 
     public function userpanel(){
 
-        $id = auth()->id();
+        $user = auth()->user();
 
+        // Get the passenger associated with the authenticated user using the user_id foreign key
+        $passenger = Passenger::where('user_id', $user->id)->first();
+    
 
+         $tickets = Ticket::where('passenger_id', $passenger->id)->with('train')->get();
 
-        return view('user.userpanel');
+        // Pass the tickets data to the view
+         return view('user.userpanel', compact('tickets'));
+
+        
     }
 
+
+    //payment summery
     public function paymentsummery(Request $request){
 
         
@@ -58,16 +69,12 @@ class PassengerController extends Controller
     // Calculate the total quantity of tickets for the passenger from the Ticket model
     $ticketCount = Ticket::where('passenger_id', $passenger->id)->sum('qty');
 
-   
  
 
     // Get the closest lower value row from the LoyaltyDiscount model
     $loyaltyDiscount = LoyaltyDiscount::where('ticket_count', '<=', $ticketCount)
         ->orderBy('ticket_count', 'desc')
         ->first();
-
-       
-
         
 
     // If there is no closest lower value, get the lowest ticket_count value
@@ -100,6 +107,82 @@ class PassengerController extends Controller
 
 
 
+    //payment logic
+    public function initiatePayment(Request $request){
+
+        // get values
+
+        $passenger_id = $request->passenger_id;
+        $train_id = $request->train_id;
+        $qty = $request->qty;
+        $discount = $request->discount;
+        $ticket_price = $request->ticket_price;
+        $total_price = $request->total_price;
+        $train_name = $request->train_name;
+
+
+       
+
+        // Save the ticket data to the database
+        $ticket = Ticket::create([
+            'passenger_id' => $passenger_id,
+            'train_id' => $train_id,
+            'qty' => $qty,
+            'discount' => $discount,
+            'ticket_price' => $ticket_price,
+            'totle_price' => $total_price,
+            'status' => 'Pending', // Hard-coded status as "Pending"
+        ]);
+
+   
+
+
+          // Prepare the payment data
+    $paymentData = [
+        'merchant_id' => '1223617',
+        'return_url' => route('userpanel'), // The URL to redirect after payment (callback URL)
+        'cancel_url' => route('userpanel'), // The URL to redirect if the user cancels the payment
+        'notify_url' => route('notify'),
+        'first_name' => 'nimal',
+        'last_name' => 'kamal',
+        'email' => 'test@gmail.com',
+        'phone' => '0775001170',
+        'address' => 'address',
+        'city' => 'address',
+        'country' => 'Sri Lanka',
+        'order_id' => $ticket->id,
+        'items' => $train_name,
+        'currency' => 'LKR', // Currency code (LKR for Sri Lankan Rupees)
+        'amount' => $total_price, 
+        // Add other relevant data as needed
+    ];
+
+    $merchant_secret = "MzM5NjI0OTc0NzQyMDg3MjIwMzExMzY0Nzg0MTEzOTA3NDA5MDE0";
+
+
+// Step 2: Calculate the MD5 hash of the concatenated data
+$hash = strtoupper(
+    md5(
+        $paymentData['merchant_id'] . 
+        $paymentData['order_id'] . 
+        number_format($paymentData['amount'], 2, '.', '') . 
+        $paymentData['currency'] .  
+        strtoupper(md5($merchant_secret)) 
+    ) 
+);
+
+
+// Add the calculated hash to the $paymentData array
+$paymentData['hash'] = $hash;
+
+    return view('user.payment_redirect', compact('paymentData'));
+
+     
+    }
+
+
 
 
 }
+
+
