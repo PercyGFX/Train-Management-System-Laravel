@@ -60,7 +60,7 @@ class AdminController extends Controller
         return view('admin.tickets', ['tickets' => $tickets]);
     }
     public function users(){
-        $users = User::with(['passengers' => function ($query) {
+        $users = User::with(['passenger' => function ($query) {
             $query->withCount('tickets');
         }])->where('type', 'Passenger')->get();
 

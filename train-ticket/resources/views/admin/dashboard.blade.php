@@ -23,7 +23,7 @@
             <!-- small box -->
             <div class="small-box bg-info">
               <div class="inner">
-                <h3>{{ \App\Ticket::whereIn('id',\App\Train::select('id')->whereDate('date', \Carbon\Carbon::today())->get()->pluck('id'))->count() }}</h3>
+                <h3>{{ \App\Ticket::whereDate('created_at', \Carbon\Carbon::today())->select('qty')->get()->sum('qty') }}</h3>
 
 
 
@@ -44,9 +44,9 @@
             <!-- small box -->
             <div class="small-box bg-success">
               <div class="inner">
-                <h3>{{ \App\Ticket::select('totle_price')->get()->sum('totle_price') }} LKR</sup></h3>
+                <h3>{{ \App\Ticket::whereDate('created_at', \Carbon\Carbon::today())->select('totle_price')->get()->sum('totle_price') }} LKR</sup></h3>
 
-                <p>Revenue</p>
+                <p>Today Revenue</p>
               </div>
               <div class="icon">
                 <i class="ion ion-stats-bars"></i>

@@ -38,10 +38,10 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function passengers()
+    public function passenger()
     {
         //return $this->hasMany('App/Passenger');
-        return $this->hasMany('App\Passenger');
+        return $this->hasOne('App\Passenger');
     }
 
 

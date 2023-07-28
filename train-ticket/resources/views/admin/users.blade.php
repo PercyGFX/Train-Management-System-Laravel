@@ -9,7 +9,7 @@
           <div class="col-sm-6">
             <h1 class="m-0">Users</h1>
           </div><!-- /.col -->
-          
+
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
     </div>
@@ -18,7 +18,7 @@
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
-       
+
         <!-- content here -->
 
         <div class="col-12">
@@ -36,7 +36,7 @@
                     <th>Email</th>
                     <th>Phone</th>
                     <th>City</th>
-                    
+
                     <th>Tickets Count</th>
                     <th>Status</th>
                   </tr>
@@ -46,34 +46,34 @@
                     @if(count($users) > 0)
         <ul>
             @foreach ($users as $user)
-               
+
 
                 <tr>
                   <td>{{ $user->id }}</td>
                   <td>{{ $user->fname }} {{ $user->lname }}</td>
                   <td>{{ $user->email }}</td>
 
-                  @foreach ($user->passengers as $passenger)
-                  <td>{{ $passenger->phone }}</td>
-                  <td>{{ $passenger->city }}</td>
 
-                 
-                  <td> {{ $passenger->tickets_count }}</td>
-                  @endforeach
-                 
+                  <td>{{ $user->passenger->phone }}</td>
+                  <td>{{ $user->passenger->city }}</td>
+
+
+                  <td> {{ $user->passenger->tickets_count }}</td>
+
+
                   <td>{{ $user->status }}</td>
-           
-                  
+
+
                 </tr>
             @endforeach
         </ul>
     @else
         <p>No users found.</p>
     @endif
-                  
 
-                 
-         
+
+
+
                   </tfoot>
                 </table>
               </div>
@@ -86,16 +86,16 @@
 
 
           <!-- content end -->
-        
-            
-         
-    
-              
+
+
+
+
+
             </div>
             <!-- -->
           </section>
           <!-- /.Left col -->
-         
+
         </div>
         <!-- /.row (main row) -->
       </div><!-- /.container-fluid -->
