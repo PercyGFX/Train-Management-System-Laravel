@@ -10,6 +10,7 @@ use App\Train;
 use App\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 
@@ -208,7 +209,26 @@ class UserController extends Controller
         $payment_status = $request->status_code;
         $ticket_id = $request->order_id;
 
-
+//        Log::notice($request);
+//        [2023-07-29 09:12:57] local.NOTICE: array (
+//            'merchant_id' => '1223617',
+//            'order_id' => '79',
+//            'payment_id' => '320032347767',
+//            'captured_amount' => '490.00',
+//            'payhere_amount' => '490.00',
+//            'payhere_currency' => 'LKR',
+//            'status_code' => '2',
+//            'md5sig' => 'F555355062D82F1B0D9EFF42A7B727A2',
+//            'custom_1' => NULL,
+//            'custom_2' => NULL,
+//            'status_message' => 'Successfully received the MASTER payment',
+//            'method' => 'MASTER',
+//            'card_holder_name' => 'dsf',
+//            'card_no' => '************1191',
+//            'card_expiry' => '12/24',
+//            'recurring' => '0',
+//        )
+//        id, created_at, updated_at, deleted_at, order_id, payment_id, payhere_amount, payhere_currency, status_message, card_expiry, card_no, method, card_holder_name, ticket_id
          // Find the Ticket record using the $ticket_id
     $ticket = Ticket::with('passenger.user','train')->find($ticket_id);
 

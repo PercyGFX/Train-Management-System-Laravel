@@ -6,9 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="7a537d99-d88c-47b4-9903-d1cfd7d8b3c1" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/train-ticket/app/Http/Controllers/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/train-ticket/app/Http/Controllers/AdminController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/train-ticket/app/Passenger.php" beforeDir="false" afterPath="$PROJECT_DIR$/train-ticket/app/Passenger.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/train-ticket/app/Ticket.php" beforeDir="false" afterPath="$PROJECT_DIR$/train-ticket/app/Ticket.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/train-ticket/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/train-ticket/app/Http/Controllers/UserController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -165,11 +163,22 @@
       <workItem from="1690392852754" duration="8466000" />
       <workItem from="1690437560365" duration="41000" />
       <workItem from="1690469546937" duration="1031000" />
-      <workItem from="1690470606384" duration="3938000" />
+      <workItem from="1690470606384" duration="31620000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/train-ticket/app/Http/Controllers/Auth/RegisterController.php</url>
+          <line>83</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
