@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\LiveLocation;
+use App\Mail\Delaymaill;
 use App\Mail\TestMail;
 use App\Mail\Thankyou;
+use App\Passenger;
 use App\Ticket;
 use App\Train;
 use App\User;
@@ -104,28 +106,15 @@ class UserController extends Controller
 
             //get all passenger emails to train id
             $trainId = $jsonData['train_id'];
+            $delaytime = $jsonData['delay_time'];
             $ticketPassengerIds = Ticket::where('train_id', $trainId)->pluck('passenger_id');
-            $passengerEmails = User::whereIn('id', $ticketPassengerIds)->pluck('email')->toArray();
+            $passengers = Passenger::with('user')->whereIn('id', $ticketPassengerIds)->get();
 
-            //get train & ticket data to train ID
-            $trainInfo = Train::where('id', $trainId)->first();
-            $ticketInfo = Ticket::where('train_id', $trainId)->first();
 
-            // Step 4: Create the email body with the required information
-            $testMailData = [
-                'title' => 'Train Delay Notification From E-Train',
-                'body' => '<h2>There is a delay in the train schedule. The delay time is: ' . $jsonData['delay_time'] . '</h2>' .
-                    '<table border="1" cellpadding="5">' .
-                    '<tr><th>Train Name</th><th>From</th><th>To</th><th>Date</th><th>From Time</th><th>To Time</th></tr>' .
-                    '<tr><td>' . $trainInfo->name . '</td><td>' . $trainInfo->from . '</td><td>' . $trainInfo->to . '</td><td>' . $trainInfo->date . '</td><td>' . $trainInfo->from_time . '</td><td>' . $trainInfo->to_time . '</td></tr>' .
-                    '</table>' .
-                    '<p>Ticket Price: ' . $ticketInfo->ticket_price . '</p>' .
-                    '<p>Ticket QTY: ' . $ticketInfo->qty . '</p>' .
-                    '<p>Total Price: ' . $ticketInfo->totle_price . '</p>',
-            ];
+            foreach ($passengers as $passenger){
+                Mail::to($passenger->user->email)->send(new Delaymaill($trainId,$passenger->id,$delaytime));
+            }
 
-            // Step 5: Send the email to the passengers
-            Mail::to($passengerEmails)->send(new TestMail($testMailData));
         }
 
         // Extract the train_id from the JSON data

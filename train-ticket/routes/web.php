@@ -1,5 +1,6 @@
 <?php
 
+use App\Ticket;
 use Illuminate\Support\Facades\Route;
 use App\Train;
 use App\User;
@@ -24,6 +25,17 @@ use App\LoyaltyDiscount;
 
 Route::get('/', function () {
     return view('user.home');
+})->name('home');
+
+
+Route::get('/xx', function () {
+    $trainId = '5';
+     $ticketPassengerIds = Ticket::where('train_id', $trainId)->pluck('passenger_id');
+    return $passengers = Passenger::with('user')->whereIn('id', $ticketPassengerIds)->get();
+
+
+
+
 })->name('home');
 
 
