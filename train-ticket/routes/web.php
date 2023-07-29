@@ -28,16 +28,7 @@ Route::get('/', function () {
 })->name('home');
 
 
-Route::get('/xx', function () {
-    $trainId = '5';
-     $ticketPassengerIds = Ticket::where('train_id', $trainId)->pluck('passenger_id');
-    return $passengers = Passenger::with('user')->whereIn('id', $ticketPassengerIds)->get();
-
-
-
-
-})->name('home');
-
+ 
 
 // all trains page
 Route::get('/trains', 'UserController@alltrains')->name('trains');
