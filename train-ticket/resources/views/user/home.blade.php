@@ -68,7 +68,7 @@
 
                         <div class="find_item">
                             <div>Date:</div>
-                            <input type="date" name="date" id="adventure" class="dropdown_item_select find_input" />
+                            <input type="date" name="date" min="{{ \Carbon\Carbon::today()->format('Y-m-d') }}" id="adventure" class="dropdown_item_select find_input" />
 
                         </div>
 

@@ -28,12 +28,7 @@ Route::get('/', function () {
 
 
 // all trains page
-Route::get('/trains', function () {
-    // Fetch the train model data where is_active == 1
-    $trains = Train::where('is_active', 1)->get();
-
-    return view('user.trains', ['trains' => $trains]);
-})->name('trains');
+Route::get('/trains', 'UserController@alltrains')->name('trains');
 
 //home page search
 

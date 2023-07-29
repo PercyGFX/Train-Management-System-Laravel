@@ -144,38 +144,39 @@ class PassengerController extends Controller
 
 
 
-
-       $testMailData = [
-        'title' => 'E-Train - Your Ticket Details',
-        'body' => '<p style="font-weight: bold; color: #333;">Name: <span style="color: #ff6600;">' . $user->user->fname . ' '. $user->user->lname . '</span><br>
-                   Ticket Id: <span style="color: #ff6600;">' . $ticket->id . '</span><br>
-                   Ticket Price: <span style="color: #ff6600;">' . $ticket->ticket_price . '</span><br>
-                   Discount: <span style="color: #ff6600;">' . $ticket->discount . '</span><br>' .
-                   'Total Price: <span style="color: #ff6600;">' . $ticket->totle_price . '</span><br>' .
-                   'Payment Status: <span style="color: #ff6600;">' . $ticket->status . '</span><br>' .
-                   'Train Name: <span style="color: #ff6600;">' . $train->name . '</span><br>' .
-                   'From Location: <span style="color: #ff6600;">' . $train->from . '</span><br>' .
-                   'To Location: <span style="color: #ff6600;">' . $train->to . '</span><br>' .
-                   'Date: <span style="color: #ff6600;">' . $train->date . '</span><br>' .
-                   'Start Time: <span style="color: #ff6600;">' . $train->from_time . '</span></p><br>'
-                   ,
-
-    ];
-
-
-    //send mail to company email
-  Mail::to($user->user->email)->send(new TestMail($testMailData));
-   //Mail::to('isurangabtk@gmail.com')->send(new TestMail($testMailData));
-
-
-
+//
+//       $testMailData = [
+//        'title' => 'E-Train - Your Ticket Details',
+//        'body' => '<p style="font-weight: bold; color: #333;">Name: <span style="color: #ff6600;">' . $user->user->fname . ' '. $user->user->lname . '</span><br>
+//                   Ticket Id: <span style="color: #ff6600;">' . $ticket->id . '</span><br>
+//                   Ticket Price: <span style="color: #ff6600;">' . $ticket->ticket_price . '</span><br>
+//                   Discount: <span style="color: #ff6600;">' . $ticket->discount . '</span><br>' .
+//                   'Total Price: <span style="color: #ff6600;">' . $ticket->totle_price . '</span><br>' .
+//                   'Payment Status: <span style="color: #ff6600;">' . $ticket->status . '</span><br>' .
+//                   'Train Name: <span style="color: #ff6600;">' . $train->name . '</span><br>' .
+//                   'From Location: <span style="color: #ff6600;">' . $train->from . '</span><br>' .
+//                   'To Location: <span style="color: #ff6600;">' . $train->to . '</span><br>' .
+//                   'Date: <span style="color: #ff6600;">' . $train->date . '</span><br>' .
+//                   'Start Time: <span style="color: #ff6600;">' . $train->from_time . '</span></p><br>'
+//                   ,
+//
+//    ];
+//
+//
+//    //send mail to company email
+////  Mail::to($user->user->email)->send(new TestMail($testMailData));
+//   Mail::to($user->user->email)->send(new \App\Mail\Ticket($ticket->id));
+//   //Mail::to('isurangabtk@gmail.com')->send(new TestMail($testMailData));
+//
+//
+//
 
 
           // Prepare the payment data
     $paymentData = [
         'merchant_id' => '1223617',
         'return_url' => route('ticket'), // The URL to redirect after payment (callback URL)
-        'cancel_url' => route('ticket'), // The URL to redirect if the user cancels the payment
+        'cancel_url' => route('userpanel'), // The URL to redirect if the user cancels the payment
         'notify_url' => route('notify'),
         'first_name' => 'nimal',
         'last_name' => 'kamal',
@@ -191,7 +192,10 @@ class PassengerController extends Controller
         // Add other relevant data as needed
     ];
 
-    $merchant_secret = "MzM5NjI0OTc0NzQyMDg3MjIwMzExMzY0Nzg0MTEzOTA3NDA5MDE0";
+//    localhost
+//    $merchant_secret = "MzM5NjI0OTc0NzQyMDg3MjIwMzExMzY0Nzg0MTEzOTA3NDA5MDE0";
+
+        $merchant_secret = "NDI1MjczMjgzMzg0MTYxMzUyMTIxMjkyOTUwNzE5ODM1ODc5NjQ=";
 
 
 // Step 2: Calculate the MD5 hash of the concatenated data

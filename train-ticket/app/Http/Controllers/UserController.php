@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use App\LiveLocation;
 use App\Mail\TestMail;
+use App\Mail\Thankyou;
 use App\Ticket;
 use App\Train;
 use App\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
@@ -61,7 +63,17 @@ class UserController extends Controller
         }
     }
 
+    public function alltrains() {
 
+        $currentDate = Carbon::now()->toDateString();
+
+// Load trains that are active and depart after today
+        $trains = Train::where('is_active', 1)
+            ->where('date', '>=', $currentDate)
+            ->get();
+
+        return view('user.trains', ['trains' => $trains]);
+    }
     //location update API
 
     public function locationupdate(Request $request){
@@ -156,10 +168,10 @@ class UserController extends Controller
             'subject' => 'required|string|max:255',
             'message' => 'required|string',
         ];
-    
+
         // Create the validator instance
         $validator = Validator::make($request->all(), $rules);
-    
+
         // Check if the validation fails
         if ($validator->fails()) {
             return redirect()
@@ -168,7 +180,7 @@ class UserController extends Controller
                 ->withInput();
         }
 
-        
+
 
         $testMailData = [
             'title' => 'E-Train Contact Us',
@@ -177,13 +189,15 @@ class UserController extends Controller
                        Subject: <span style="color: #ff6600;">' . $request->subject . '</span><br>
                        Message: <span style="color: #ff6600;">' . $request->message . '</span></p>',
         ];
-        
+
 
         //send mail to company email
         Mail::to('isurangabtk@gmail.com')->send(new TestMail($testMailData));
 
+        Mail::to($request->email)->send(new Thankyou($request->name));
+
         return view('user.contactemail')->with('message', "Message sent successfully");
-    
+
 
 
     }
@@ -196,7 +210,7 @@ class UserController extends Controller
 
 
          // Find the Ticket record using the $ticket_id
-    $ticket = Ticket::find($ticket_id);
+    $ticket = Ticket::with('passenger.user','train')->find($ticket_id);
 
     // Update the status based on the $payment_status
     switch ($payment_status) {
@@ -223,12 +237,14 @@ class UserController extends Controller
     // Save the updated ticket status
     $ticket->save();
 
+        Mail::to($ticket->passenger->user->email)->send(new \App\Mail\Ticket($ticket->id));
+
     // Return a response to PayHere (important for the payment process to be completed)
     return response()->json(['status' => 'success']);
 
-  
+
     }
-    
+
 
 
 }
