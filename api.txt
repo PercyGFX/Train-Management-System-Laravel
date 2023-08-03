@@ -1,0 +1,10 @@
+https://etrain.sanshine.lk/api/locationupdate
+
+{
+  "train_id": 11,
+  "status": 1,
+  "lat": 6.0482,
+  "lng": 80.7339,
+  "delay_time": "02:30:00",
+  "delay_status": 0
+}
