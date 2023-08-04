@@ -1,6 +1,6 @@
-Laravel application
+##Laravel application
 
-TO RUN:
+###TO RUN:
 1. composer install 
 
 2. php artisan serve
