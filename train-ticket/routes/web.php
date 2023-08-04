@@ -28,7 +28,7 @@ Route::get('/', function () {
 })->name('home');
 
 
- 
+
 
 // all trains page
 Route::get('/trains', 'UserController@alltrains')->name('trains');
@@ -50,9 +50,7 @@ Route::post('/contact/email', 'UserController@contactemailsend')->name('contacte
 
 
 
-Route::get('/loyalty', function () {
-    return view('user.loyalty');
-})->name('loyalty');
+Route::get('/loyalty', 'UserController@loyalty')->name('loyalty');
 
 Route::get('/contact', function () {
     return view('user.contact');

@@ -31,21 +31,21 @@
                     <img src="{{ asset('frontend/images/bronze.png') }}" class="card-img-top" alt="Sunset Over the Sea" />
                     <div class="card-body">
                         <p class="card-text text-center">Bronze</p>
-                        <p class="card-text text-center">Get more than 50 Tikets with in the Year Get the Bronze Badge</p>
+                        <p class="card-text text-center">Get more than {{$bronze->ticket_count}} Tikets with in the Year Get the Bronze Badge with {{ $bronze->dicount_precentage }}% discount</p>
                     </div>
                 </div>
                 <div class="card m-3" style="width: 14rem;">
                     <img src="{{ asset('frontend/images/gold.png') }}" class="card-img-top" alt="Sunset Over the Sea" />
                     <div class="card-body">
                         <p class="card-text text-center">Gold</p>
-                        <p class="card-text text-center">Get more than 300 Tikets with in the Year Get the Gold Badge</p>
+                        <p class="card-text text-center">Get more than {{$gold->ticket_count}} Tikets with in the Year Get the Gold Badge with {{ $gold->dicount_precentage }}% discount</p>
                     </div>
                 </div>
                 <div class="card m-3" style="width: 14rem;">
                     <img src="{{ asset('frontend/images/silver.png') }}" class="card-img-top" alt="Sunset Over the Sea" />
                     <div class="card-body">
-                        <p class="card-text text-center">Silver</p>
-                        <p class="card-text text-center">Get more than 100 Tikets with in the Year Get the Silver Badge</p>
+                        <p class="card-text text-center">Platinum</p>
+                        <p class="card-text text-center">Get more than {{$platinum->ticket_count}} Tikets with in the Year Get the Platinum Badge with {{ $platinum->dicount_precentage }}% discount</p>
                     </div>
                 </div>
             </div>

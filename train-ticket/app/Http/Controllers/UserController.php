@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\LiveLocation;
+use App\LoyaltyDiscount;
 use App\Mail\Delaymaill;
 use App\Mail\TestMail;
 use App\Mail\Thankyou;
@@ -29,7 +30,6 @@ class UserController extends Controller
             ->where('to', $toLocation)
             ->where('date', $date)
             ->where('is_active', 1)
-            ->take(3)
             ->get();
 
         // If no results found, use a default message
@@ -253,7 +253,12 @@ class UserController extends Controller
 
 
     }
-
+    public function loyalty(){
+        $bronze = LoyaltyDiscount::where('badge','Bronze')->first();
+        $gold = LoyaltyDiscount::where('badge','Gold')->first();
+        $platinum = LoyaltyDiscount::where('badge','Platinum')->first();
+        return view('user.loyalty',['bronze'=>$bronze,'gold'=>$gold,'platinum'=>$platinum]);
+    }
 
 
 }
